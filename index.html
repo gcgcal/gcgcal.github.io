@@ -1,0 +1,141 @@
+<html>
+<head>
+	<title>GCG Calc</title>
+</head>
+<body>
+	<form name="form1" onSubmit="Calc();return false;">
+		GCG 凸素材計算<br>
+		<br>
+		所持数<br>
+		白<input type="text" id="w" size="5" value="0">
+		青<input type="text" id="b" size="5" value="0">
+		紫<input type="text" id="p" size="5" value="0">
+		金<input type="text" id="g" size="5" value="0"><br>
+		<input type="checkbox" id="dub" checked="checked">ドロップ2倍<br>
+		<input type="submit" id="cmdCalc" size="5" value="計算" onclick="Calc()"><br>
+		<br>
+		---<br>
+		必要数・周回数
+		（デイリー・ランダム分含まず）<br>
+		SSR<br>
+		残り:
+		白<input type="text" id="ssr_w" size="5" value="420">
+		青<input type="text" id="ssr_b" size="5" value="160">
+		紫<input type="text" id="ssr_p" size="5" value="85">
+		金<input type="text" id="ssr_g" size="5" value="10"><br>
+		地獄:
+		白<input type="text" id="ssr_iw" size="5" value="12">
+		青<input type="text" id="ssr_ib" size="5" value="14">
+		紫<input type="text" id="ssr_ip" size="5" value="15"><br>
+		悪夢:
+		白<input type="text" id="ssr_nw" size="5" value="15">
+		青<input type="text" id="ssr_nb" size="5" value="16">
+		紫<input type="text" id="ssr_np" size="5" value="22"><br>
+		困難:
+		白<input type="text" id="ssr_hw" size="5" value="21">
+		青<input type="text" id="ssr_hb" size="5" value="27">
+		紫<input type="text" id="ssr_hp" size="5" value="43"><br>
+		SR<br>
+		残り:
+		白<input type="text" id="sr_w" size="5" value="230">
+		青<input type="text" id="sr_b" size="5" value="95">
+		紫<input type="text" id="sr_p" size="5" value="50">
+		金<input type="text" id="sr_g" size="5" value="5"><br>
+		地獄:
+		白<input type="text" id="sr_iw" size="5" value="7">
+		青<input type="text" id="sr_ib" size="5" value="8">
+		紫<input type="text" id="sr_ip" size="5" value="9"><br>
+		悪夢:
+		白<input type="text" id="sr_nw" size="5" value="9">
+		青<input type="text" id="sr_nb" size="5" value="10">
+		紫<input type="text" id="sr_np" size="5" value="13"><br>
+		困難:
+		白<input type="text" id="sr_hw" size="5" value="12">
+		青<input type="text" id="sr_hb" size="5" value="16">
+		紫<input type="text" id="sr_hp" size="5" value="25"><br>
+	</form>
+	<script type="text/javascript">
+	function Calc() {
+		w = document.form1.w.value;
+		b = document.form1.b.value;
+		p = document.form1.p.value;
+		g = document.form1.g.value;
+		//残り個数
+		ssr_w = (420-parseInt(w));
+		ssr_b = (160-parseInt(b));
+		ssr_p = (85-parseInt(p));
+		ssr_g = (10-parseInt(g));
+		sr_w = (230-parseInt(w));
+		sr_b = (95-parseInt(b));
+		sr_p = (50-parseInt(p));
+		sr_g = (5-parseInt(g));
+		document.form1.ssr_w.value = ssr_w;
+		document.form1.ssr_b.value = ssr_b;
+		document.form1.ssr_p.value = ssr_p;
+		document.form1.ssr_g.value = ssr_g;
+		document.form1.sr_w.value = sr_w;
+		document.form1.sr_b.value = sr_b;
+		document.form1.sr_p.value = sr_p;
+		document.form1.sr_g.value = sr_g;
+		//周回数
+		iw = 18
+		ib = 6
+		ip = 3
+		nw = 14
+		nb = 5
+		np = 2
+		hw = 10
+		hb = 3
+		hp = 1
+		dub = document.form1.dub.checked;
+		if (dub == true){
+			iw *= 2;
+			ib *= 2;
+			ip *= 2;
+			nw *= 2;
+			nb *= 2;
+			np *= 2;
+			hw *= 2;
+			hb *= 2;
+			hp *= 2;
+		}
+		ssr_iw = (420-parseInt(w))/iw;
+		ssr_ib = (160-parseInt(b))/ib;
+		ssr_ip = (85-parseInt(p))/ip;
+		ssr_nw = (420-parseInt(w))/nw;
+		ssr_nb = (160-parseInt(b))/nb;
+		ssr_np = (85-parseInt(p))/np;
+		ssr_hw = (420-parseInt(w))/hw;
+		ssr_hb = (160-parseInt(b))/hb;
+		ssr_hp = (85-parseInt(p))/hp;
+		sr_iw = (230-parseInt(w))/iw;
+		sr_ib = (95-parseInt(b))/ib;
+		sr_ip = (50-parseInt(p))/ip;
+		sr_nw = (230-parseInt(w))/nw;
+		sr_nb = (95-parseInt(b))/nb;
+		sr_np = (50-parseInt(p))/np;
+		sr_hw = (230-parseInt(w))/hw;
+		sr_hb = (95-parseInt(b))/hb;
+		sr_hp = (50-parseInt(p))/hp;
+		document.form1.ssr_iw.value = Math.ceil(ssr_iw);
+		document.form1.ssr_ib.value = Math.ceil(ssr_ib);
+		document.form1.ssr_ip.value = Math.ceil(ssr_ip);
+		document.form1.ssr_nw.value = Math.ceil(ssr_nw);
+		document.form1.ssr_nb.value = Math.ceil(ssr_nb);
+		document.form1.ssr_np.value = Math.ceil(ssr_np);
+		document.form1.ssr_hw.value = Math.ceil(ssr_hw);
+		document.form1.ssr_hb.value = Math.ceil(ssr_hb);
+		document.form1.ssr_hp.value = Math.ceil(ssr_hp);
+		document.form1.sr_iw.value = Math.ceil(sr_iw);
+		document.form1.sr_ib.value = Math.ceil(sr_ib);
+		document.form1.sr_ip.value = Math.ceil(sr_ip);
+		document.form1.sr_nw.value = Math.ceil(sr_nw);
+		document.form1.sr_nb.value = Math.ceil(sr_nb);
+		document.form1.sr_np.value = Math.ceil(sr_np);
+		document.form1.sr_hw.value = Math.ceil(sr_hw);
+		document.form1.sr_hb.value = Math.ceil(sr_hb);
+		document.form1.sr_hp.value = Math.ceil(sr_hp);
+	}
+	</script>
+</body>
+</html>
