@@ -7,7 +7,11 @@
 	<form name="form1" onSubmit="Calc();return false;">
 		ガルカフェ 凸素材計算<br>
 		<br>
-		所持数<br>
+		覚醒対象<br>
+		SSR<input type="text" id="ssr_num" size="5" value="1">
+		SR<input type="text" id="sr_num" size="5" value="0"><br>
+		<br>
+		素材所持数<br>
 		白<input type="text" id="w" size="5" value="0">
 		青<input type="text" id="b" size="5" value="0">
 		紫<input type="text" id="p" size="5" value="0">
@@ -16,136 +20,107 @@
 		<input type="submit" id="cmdCalc" size="5" value="計算" onclick="Calc()"><br>
 		<br>
 		---<br>
-		必要数・周回数
-		（デイリー・ランダム分含めず）<br>
-		SSR<br>
-		残り:
-		白<input type="text" id="ssr_w" size="5" value="420">
-		青<input type="text" id="ssr_b" size="5" value="160">
-		紫<input type="text" id="ssr_p" size="5" value="85">
-		金<input type="text" id="ssr_g" size="5" value="10"><br>
-		地獄:
-		白<input type="text" id="ssr_iw" size="5" value="12">
-		青<input type="text" id="ssr_ib" size="5" value="14">
-		紫<input type="text" id="ssr_ip" size="5" value="15"><br>
-		悪夢:
-		白<input type="text" id="ssr_nw" size="5" value="15">
-		青<input type="text" id="ssr_nb" size="5" value="16">
-		紫<input type="text" id="ssr_np" size="5" value="22"><br>
-		困難:
-		白<input type="text" id="ssr_hw" size="5" value="21">
-		青<input type="text" id="ssr_hb" size="5" value="27">
-		紫<input type="text" id="ssr_hp" size="5" value="43"><br>
+		必要数:
+		白<input type="text" id="req_w" size="5" value="420">
+		青<input type="text" id="req_b" size="5" value="160">
+		紫<input type="text" id="req_p" size="5" value="85">
+		金<input type="text" id="req_g" size="5" value="10"><br>
+		不足数:
+		白<input type="text" id="beh_w" size="5" value="420">
+		青<input type="text" id="beh_b" size="5" value="160">
+		紫<input type="text" id="beh_p" size="5" value="85">
+		金<input type="text" id="beh_g" size="5" value="10"><br>
 		<br>
-		SR<br>
-		残り:
-		白<input type="text" id="sr_w" size="5" value="230">
-		青<input type="text" id="sr_b" size="5" value="95">
-		紫<input type="text" id="sr_p" size="5" value="50">
-		金<input type="text" id="sr_g" size="5" value="5"><br>
-		地獄:
-		白<input type="text" id="sr_iw" size="5" value="7">
-		青<input type="text" id="sr_ib" size="5" value="8">
-		紫<input type="text" id="sr_ip" size="5" value="9"><br>
-		悪夢:
-		白<input type="text" id="sr_nw" size="5" value="9">
-		青<input type="text" id="sr_nb" size="5" value="10">
-		紫<input type="text" id="sr_np" size="5" value="13"><br>
-		困難:
-		白<input type="text" id="sr_hw" size="5" value="12">
-		青<input type="text" id="sr_hb" size="5" value="16">
-		紫<input type="text" id="sr_hp" size="5" value="25"><br>
+		周回数（デイリー・ランダム分含めず）<br>
+		地獄　:
+		白<input type="text" id="round_iw" size="5" value="12">
+		青<input type="text" id="round_ib" size="5" value="14">
+		紫<input type="text" id="round_ip" size="5" value="15"><br>
+		悪夢　:
+		白<input type="text" id="round_nw" size="5" value="15">
+		青<input type="text" id="round_nb" size="5" value="16">
+		紫<input type="text" id="round_np" size="5" value="22"><br>
+		困難　:
+		白<input type="text" id="round_hw" size="5" value="21">
+		青<input type="text" id="round_hb" size="5" value="27">
+		紫<input type="text" id="round_hp" size="5" value="43"><br>
+		<br>
+
 	</form>
 	<script type="text/javascript">
 	function Calc() {
+		ssr_num = document.form1.ssr_num.value;
+		sr_num = document.form1.sr_num.value;
 		w = document.form1.w.value;
 		b = document.form1.b.value;
 		p = document.form1.p.value;
 		g = document.form1.g.value;
-		//残り個数
-		ssr_w = (420-parseInt(w));
-		ssr_b = (160-parseInt(b));
-		ssr_p = (85-parseInt(p));
-		ssr_g = (10-parseInt(g));
-		sr_w = (230-parseInt(w));
-		sr_b = (95-parseInt(b));
-		sr_p = (50-parseInt(p));
-		sr_g = (5-parseInt(g));
-		document.form1.ssr_w.value = ssr_w;
-		document.form1.ssr_b.value = ssr_b;
-		document.form1.ssr_p.value = ssr_p;
-		document.form1.ssr_g.value = ssr_g;
-		document.form1.sr_w.value = sr_w;
-		document.form1.sr_b.value = sr_b;
-		document.form1.sr_p.value = sr_p;
-		document.form1.sr_g.value = sr_g;
+
+		
+		//必要個数
+		req_w = (420*parseInt(ssr_num))+(230*parseInt(sr_num));
+		req_b = (160*parseInt(ssr_num))+(95*parseInt(sr_num));
+		req_p = (85*parseInt(ssr_num))+(50*parseInt(sr_num));
+		req_g = (10*parseInt(ssr_num))+(5*parseInt(sr_num));
+		
+		document.form1.req_w.value = req_w;
+		document.form1.req_b.value = req_b;
+		document.form1.req_p.value = req_p;
+		document.form1.req_g.value = req_g;
+		
+		//不足数
+		beh_w = req_w - w;
+		beh_b = req_b - b;
+		beh_p = req_p - p;
+		beh_g = req_g - g;
+		
+		document.form1.beh_w.value = beh_w;
+		document.form1.beh_b.value = beh_b;
+		document.form1.beh_p.value = beh_p;
+		document.form1.beh_g.value = beh_g;
+		
 		//周回数
-		iw = 18
-		ib = 6
-		ip = 3
-		nw = 14
-		nb = 5
-		np = 2
-		hw = 10
-		hb = 3
-		hp = 1
+		inf = [18,6,3]
+		nig = [14,5,2]
+		hard = [10,3,1]
 		dub = document.form1.dub.checked;
 		if (dub == true){
-			iw *= 2;
-			ib *= 2;
-			ip *= 2;
-			nw *= 2;
-			nb *= 2;
-			np *= 2;
-			hw *= 2;
-			hb *= 2;
-			hp *= 2;
+			for(var i=0; i<3;i++){
+				inf[i] *= 2;
+				nig[i] *= 2;
+				hard[i] *= 2;
+			}
 		}
-		ssr_iw = (420-parseInt(w))/iw;
-		ssr_ib = (160-parseInt(b))/ib;
-		ssr_ip = (85-parseInt(p))/ip;
-		ssr_nw = (420-parseInt(w))/nw;
-		ssr_nb = (160-parseInt(b))/nb;
-		ssr_np = (85-parseInt(p))/np;
-		ssr_hw = (420-parseInt(w))/hw;
-		ssr_hb = (160-parseInt(b))/hb;
-		ssr_hp = (85-parseInt(p))/hp;
-		sr_iw = (230-parseInt(w))/iw;
-		sr_ib = (95-parseInt(b))/ib;
-		sr_ip = (50-parseInt(p))/ip;
-		sr_nw = (230-parseInt(w))/nw;
-		sr_nb = (95-parseInt(b))/nb;
-		sr_np = (50-parseInt(p))/np;
-		sr_hw = (230-parseInt(w))/hw;
-		sr_hb = (95-parseInt(b))/hb;
-		sr_hp = (50-parseInt(p))/hp;
-		document.form1.ssr_iw.value = Math.ceil(ssr_iw);
-		document.form1.ssr_ib.value = Math.ceil(ssr_ib);
-		document.form1.ssr_ip.value = Math.ceil(ssr_ip);
-		document.form1.ssr_nw.value = Math.ceil(ssr_nw);
-		document.form1.ssr_nb.value = Math.ceil(ssr_nb);
-		document.form1.ssr_np.value = Math.ceil(ssr_np);
-		document.form1.ssr_hw.value = Math.ceil(ssr_hw);
-		document.form1.ssr_hb.value = Math.ceil(ssr_hb);
-		document.form1.ssr_hp.value = Math.ceil(ssr_hp);
-		document.form1.sr_iw.value = Math.ceil(sr_iw);
-		document.form1.sr_ib.value = Math.ceil(sr_ib);
-		document.form1.sr_ip.value = Math.ceil(sr_ip);
-		document.form1.sr_nw.value = Math.ceil(sr_nw);
-		document.form1.sr_nb.value = Math.ceil(sr_nb);
-		document.form1.sr_np.value = Math.ceil(sr_np);
-		document.form1.sr_hw.value = Math.ceil(sr_hw);
-		document.form1.sr_hb.value = Math.ceil(sr_hb);
-		document.form1.sr_hp.value = Math.ceil(sr_hp);
+		round_iw = (beh_w)/inf[0];
+		round_ib = (beh_b)/inf[1];
+		round_ip = (beh_p)/inf[2];
+		round_nw = (beh_w)/nig[0];
+		round_nb = (beh_b)/nig[1];
+		round_np = (beh_p)/nig[2];
+		round_hw = (beh_w)/hard[0];
+		round_hb = (beh_b)/hard[1];
+		round_hp = (beh_p)/hard[2];
+
+		document.form1.round_iw.value = Math.ceil(round_iw);
+		document.form1.round_ib.value = Math.ceil(round_ib);
+		document.form1.round_ip.value = Math.ceil(round_ip);
+		document.form1.round_nw.value = Math.ceil(round_nw);
+		document.form1.round_nb.value = Math.ceil(round_nb);
+		document.form1.round_np.value = Math.ceil(round_np);
+		document.form1.round_hw.value = Math.ceil(round_hw);
+		document.form1.round_hb.value = Math.ceil(round_hb);
+		document.form1.round_hp.value = Math.ceil(round_hp);
 	}
 	</script>
+
 	---<br>
-	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki">ガルカフェメモ</a><br>
-	---<br>
-	thanks.<br>
+	Thanks.<br>
 	<a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570341406/449">【ガルカフェ】ガール・カフェ・ガン Part.42 >>449</a><br>
 	<a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570361440/413">【ガルカフェ】ガール・カフェ・ガン Part.43 >>413</a><br>
 	<br>
 	---<br>
+	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki">ガルカフェメモ</a><br>
+	---<br>
+	20191009 覚醒対象の数を指定できるように変更
 </body>
 </html>
