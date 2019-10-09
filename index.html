@@ -45,7 +45,6 @@
 		青<input type="text" id="round_hb" size="5" value="27">
 		紫<input type="text" id="round_hp" size="5" value="43"><br>
 		<br>
-
 	</form>
 	<script type="text/javascript">
 	function Calc() {
@@ -55,14 +54,12 @@
 		b = document.form1.b.value;
 		p = document.form1.p.value;
 		g = document.form1.g.value;
-
 		
 		//必要個数
 		req_w = (420*parseInt(ssr_num))+(230*parseInt(sr_num));
 		req_b = (160*parseInt(ssr_num))+(95*parseInt(sr_num));
 		req_p = (85*parseInt(ssr_num))+(50*parseInt(sr_num));
 		req_g = (10*parseInt(ssr_num))+(5*parseInt(sr_num));
-		
 		document.form1.req_w.value = req_w;
 		document.form1.req_b.value = req_b;
 		document.form1.req_p.value = req_p;
@@ -73,7 +70,6 @@
 		beh_b = req_b - b;
 		beh_p = req_p - p;
 		beh_g = req_g - g;
-		
 		document.form1.beh_w.value = beh_w;
 		document.form1.beh_b.value = beh_b;
 		document.form1.beh_p.value = beh_p;
@@ -100,7 +96,6 @@
 		round_hw = (beh_w)/hard[0];
 		round_hb = (beh_b)/hard[1];
 		round_hp = (beh_p)/hard[2];
-
 		document.form1.round_iw.value = Math.ceil(round_iw);
 		document.form1.round_ib.value = Math.ceil(round_ib);
 		document.form1.round_ip.value = Math.ceil(round_ip);
@@ -112,15 +107,13 @@
 		document.form1.round_hp.value = Math.ceil(round_hp);
 	}
 	</script>
-	<br>
 	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E9%99%90%E7%95%8C%E7%AA%81%E7%A0%B4">必要数</a><br>
+	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki">ガルカフェメモ</a><br>
 	---<br>
 	Thanks.<br>
 	<a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570341406/449">【ガルカフェ】ガール・カフェ・ガン Part.42 >>449</a><br>
 	<a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570361440/413">【ガルカフェ】ガール・カフェ・ガン Part.43 >>413</a><br>
 	<br>
-	---<br>
-	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki">ガルカフェメモ</a><br>
 	---<br>
 	20191009 覚醒対象の数を指定できるように変更
 </body>
