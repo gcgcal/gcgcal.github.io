@@ -16,6 +16,7 @@ function ExpCalc() {
 	}
 	getexp += 3750*2;
 	round_exp = reqexp/getexp
-	document.form2.round_exp.value = Math.ceil(round_exp);
 	document.form2.reqexp.value = Math.ceil(reqexp);
+	document.form2.reqcry.value = Math.ceil(reqexp*2/3);
+	document.form2.round_exp.value = Math.ceil(round_exp);
 }
