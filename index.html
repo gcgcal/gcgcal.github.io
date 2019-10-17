@@ -9,20 +9,17 @@
 	<!-- イーコスこすこす -->
 	<h1>ガルカフェ 計算機</h1>
 	<h2>限界突破素材計算</h2>
+	限界突破に必要な素材の数とBountyの周回数を計算します。
 	<form name="form1" onSubmit="Calc();return false;">
 		限界突破対象<br>
 		SSR<br>
 		+0:<input type="tel" onfocus="this.select();" id="ssr0_num" size="5" value="1">
 		+1:<input type="tel" onfocus="this.select();" id="ssr1_num" size="5" value="0">
-		+2:<input type="tel" onfocus="this.select();" id="ssr2_num" size="5" value="0">
-		<br>
-		<br>
+		+2:<input type="tel" onfocus="this.select();" id="ssr2_num" size="5" value="0"><br>
 		SR<br>
 		+0:<input type="tel" onfocus="this.select();" id="sr0_num" size="5" value="0">
 		+1:<input type="tel" onfocus="this.select();" id="sr1_num" size="5" value="0">
-		+2:<input type="tel" onfocus="this.select();" id="sr2_num" size="5" value="0">
-		<br>
-		<br>
+		+2:<input type="tel" onfocus="this.select();" id="sr2_num" size="5" value="0"><br>
 		素材所持数<br>
 		白:<input type="tel" onfocus="this.select();" id="w" size="5" value="0">
 		青:<input type="tel" onfocus="this.select();" id="b" size="5" value="0">
@@ -41,8 +38,7 @@
 		青:<input type="tel" onfocus="this.select();" id="beh_b" size="5" value="160">
 		紫:<input type="tel" onfocus="this.select();" id="beh_p" size="5" value="85">
 		金:<input type="tel" onfocus="this.select();" id="beh_g" size="5" value="10"><br>
-		<br>
-		およその周回数（デイリー・ランダム分含めず）<br>
+		周回数（デイリー・ランダム分含めず）<br>
 		地獄　:
 		白:<input type="tel" onfocus="this.select();" id="round_iw" size="5" value="12">
 		青:<input type="tel" onfocus="this.select();" id="round_ib" size="5" value="14">
@@ -58,11 +54,11 @@
 	</form>
 	------<br>
 	<h2>強化計算</h2>
+	Lv70までに必要な経験値とBounty地獄級の周回数を計算します。同属性ボーナス適用が前提。
 	<form name="form2" onSubmit="ExpCalc();return false;">
 		現在のレベル<br>
 		<input type="tel" onfocus="this.select();" id="level" size="5" value="1"><br>
-		<br>
-		同属性素材所持数<br>
+		素材所持数<br>
                 白<input type="tel" onfocus="this.select();" id="w" size="5" value="0">
                 青<input type="tel" onfocus="this.select();" id="b" size="5" value="0">
                 紫<input type="tel" onfocus="this.select();" id="p" size="5" value="0">
@@ -70,10 +66,10 @@
 		<input type="checkbox" id="dub" checked="checked">ドロップ2倍<br>
                 <input type="submit" id="cmdCalc" size="5" value="計算" onclick="Calc()"><br>
 	---<br>
-		Lv70までに必要なおよその地獄周回数（デイリー分含めず、ランダム報酬は2個固定で計算）<br>
+		必要経験値<br>
+		<input type="tel" onfocus="this.select();" id="reqexp" size="5" value="1000000"><br>
+		地獄周回数（デイリー分含めず、ランダム報酬は2個固定で計算）<br>
 		<input type="tel" onfocus="this.select();" id="round_exp" size="5" value="17"><br>
-		およその経験値:<br>
-		<input type="tel" onfocus="this.select();" id="reqexp" size="5" value="1000000">
 	</form>
 	------<br>
 	<script type="text/javascript" src="calc.js"></script>
