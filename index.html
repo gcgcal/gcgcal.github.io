@@ -9,67 +9,67 @@
 		<h4>限界突破素材計算</h4>
 		限界突破対象<br>
 		SSR<br>
-		+0<input type="text" onfocus="this.select();" id="ssr0_num" size="5" value="1">
-		+1<input type="text" onfocus="this.select();" id="ssr1_num" size="5" value="0">
-		+2<input type="text" onfocus="this.select();" id="ssr2_num" size="5" value="0">
+		+0<input type="number" onfocus="this.select();" id="ssr0_num" size="5" value="1">
+		+1<input type="number" onfocus="this.select();" id="ssr1_num" size="5" value="0">
+		+2<input type="number" onfocus="this.select();" id="ssr2_num" size="5" value="0">
 		<br>
 		<br>
 		SR<br>
-		+0<input type="text" onfocus="this.select();" id="sr0_num" size="5" value="0">
-		+1<input type="text" onfocus="this.select();" id="sr1_num" size="5" value="0">
-		+2<input type="text" onfocus="this.select();" id="sr2_num" size="5" value="0">
+		+0<input type="number" onfocus="this.select();" id="sr0_num" size="5" value="0">
+		+1<input type="number" onfocus="this.select();" id="sr1_num" size="5" value="0">
+		+2<input type="number" onfocus="this.select();" id="sr2_num" size="5" value="0">
 		<br>
 		<br>
 		素材所持数<br>
-		白<input type="text" onfocus="this.select();" id="w" size="5" value="0">
-		青<input type="text" onfocus="this.select();" id="b" size="5" value="0">
-		紫<input type="text" onfocus="this.select();" id="p" size="5" value="0">
-		金<input type="text" onfocus="this.select();" id="g" size="5" value="0"><br>
+		白<input type="number" onfocus="this.select();" id="w" size="5" value="0">
+		青<input type="number" onfocus="this.select();" id="b" size="5" value="0">
+		紫<input type="number" onfocus="this.select();" id="p" size="5" value="0">
+		金<input type="number" onfocus="this.select();" id="g" size="5" value="0"><br>
 		<input type="checkbox" id="dub" checked="checked">ドロップ2倍<br>
 		<input type="submit" id="cmdCalc" size="5" value="計算" onclick="Calc()"><br>
 	---<br>
 		素材必要数:
-		白<input type="text" onfocus="this.select();" id="req_w" size="5" value="420">
-		青<input type="text" onfocus="this.select();" id="req_b" size="5" value="160">
-		紫<input type="text" onfocus="this.select();" id="req_p" size="5" value="85">
-		金<input type="text" onfocus="this.select();" id="req_g" size="5" value="10"><br>
+		白<input type="number" onfocus="this.select();" id="req_w" size="5" value="420">
+		青<input type="number" onfocus="this.select();" id="req_b" size="5" value="160">
+		紫<input type="number" onfocus="this.select();" id="req_p" size="5" value="85">
+		金<input type="number" onfocus="this.select();" id="req_g" size="5" value="10"><br>
 		素材不足数:
-		白<input type="text" onfocus="this.select();" id="beh_w" size="5" value="420">
-		青<input type="text" onfocus="this.select();" id="beh_b" size="5" value="160">
-		紫<input type="text" onfocus="this.select();" id="beh_p" size="5" value="85">
-		金<input type="text" onfocus="this.select();" id="beh_g" size="5" value="10"><br>
+		白<input type="number" onfocus="this.select();" id="beh_w" size="5" value="420">
+		青<input type="number" onfocus="this.select();" id="beh_b" size="5" value="160">
+		紫<input type="number" onfocus="this.select();" id="beh_p" size="5" value="85">
+		金<input type="number" onfocus="this.select();" id="beh_g" size="5" value="10"><br>
 		<br>
 		およその周回数（デイリー・ランダム分含めず）<br>
 		地獄　:
-		白<input type="text" onfocus="this.select();" id="round_iw" size="5" value="12">
-		青<input type="text" onfocus="this.select();" id="round_ib" size="5" value="14">
-		紫<input type="text" onfocus="this.select();" id="round_ip" size="5" value="15"><br>
+		白<input type="number" onfocus="this.select();" id="round_iw" size="5" value="12">
+		青<input type="number" onfocus="this.select();" id="round_ib" size="5" value="14">
+		紫<input type="number" onfocus="this.select();" id="round_ip" size="5" value="15"><br>
 		悪夢　:
-		白<input type="text" onfocus="this.select();" id="round_nw" size="5" value="15">
-		青<input type="text" onfocus="this.select();" id="round_nb" size="5" value="16">
-		紫<input type="text" onfocus="this.select();" id="round_np" size="5" value="22"><br>
+		白<input type="number" onfocus="this.select();" id="round_nw" size="5" value="15">
+		青<input type="number" onfocus="this.select();" id="round_nb" size="5" value="16">
+		紫<input type="number" onfocus="this.select();" id="round_np" size="5" value="22"><br>
 		困難　:
-		白<input type="text" onfocus="this.select();" id="round_hw" size="5" value="21">
-		青<input type="text" onfocus="this.select();" id="round_hb" size="5" value="27">
-		紫<input type="text" onfocus="this.select();" id="round_hp" size="5" value="43"><br>
+		白<input type="number" onfocus="this.select();" id="round_hw" size="5" value="21">
+		青<input type="number" onfocus="this.select();" id="round_hb" size="5" value="27">
+		紫<input type="number" onfocus="this.select();" id="round_hp" size="5" value="43"><br>
 	</form>
 	------<br>
 	<form name="form2" onSubmit="ExpCalc();return false;">
 		<h4>強化計算</h4>
-		現在のレベル<input type="text" onfocus="this.select();" id="level" size="5" value="1"><br>
+		現在のレベル<input type="number" onfocus="this.select();" id="level" size="5" value="1"><br>
 		<br>
 		同属性素材所持数<br>
-                白<input type="text" onfocus="this.select();" id="w" size="5" value="0">
-                青<input type="text" onfocus="this.select();" id="b" size="5" value="0">
-                紫<input type="text" onfocus="this.select();" id="p" size="5" value="0">
-                金<input type="text" onfocus="this.select();" id="g" size="5" value="0"><br>
+                白<input type="number" onfocus="this.select();" id="w" size="5" value="0">
+                青<input type="number" onfocus="this.select();" id="b" size="5" value="0">
+                紫<input type="number" onfocus="this.select();" id="p" size="5" value="0">
+                金<input type="number" onfocus="this.select();" id="g" size="5" value="0"><br>
 		<input type="checkbox" id="dub" checked="checked">ドロップ2倍<br>
                 <input type="submit" id="cmdCalc" size="5" value="計算" onclick="Calc()"><br>
 	---<br>
 		Lv70までに必要なおよその地獄周回数（デイリー分含めず、ランダム報酬は2個固定で計算）<br>
-		<input type="text" onfocus="this.select();" id="round_exp" size="5" value="17"><br>
+		<input type="number" onfocus="this.select();" id="round_exp" size="5" value="17"><br>
 		およその経験値:<br>
-		<input type="text" onfocus="this.select();" id="reqexp" size="5" value="1000000">
+		<input type="number" onfocus="this.select();" id="reqexp" size="5" value="1000000">
 	</form>
 	------<br>
 	<script type="text/javascript" src="calc.js"></script>
