@@ -5,109 +5,202 @@
 <body>
 	<!-- イーコスこすこす -->
 	<form name="form1" onSubmit="Calc();return false;">
-		ガルカフェ 凸素材計算<br>
+		<h3>ガルカフェ 計算機</h3>
+		<h4>限界突破素材計算</h4>
+		限界突破対象<br>
+		SSR<br>
+		+0<input type="text" onfocus="this.select();" id="ssr0_num" size="5" value="1">
+		+1<input type="text" onfocus="this.select();" id="ssr1_num" size="5" value="0">
+		+2<input type="text" onfocus="this.select();" id="ssr2_num" size="5" value="0">
 		<br>
-		対象<br>
-		SSR<input type="text" id="ssr_num" size="5" value="1">
-		SR<input type="text" id="sr_num" size="5" value="0"><br>
+		<br>
+		SR<br>
+		+0<input type="text" onfocus="this.select();" id="sr0_num" size="5" value="0">
+		+1<input type="text" onfocus="this.select();" id="sr1_num" size="5" value="0">
+		+2<input type="text" onfocus="this.select();" id="sr2_num" size="5" value="0">
+		<br>
 		<br>
 		素材所持数<br>
-		白<input type="text" id="w" size="5" value="0">
-		青<input type="text" id="b" size="5" value="0">
-		紫<input type="text" id="p" size="5" value="0">
-		金<input type="text" id="g" size="5" value="0"><br>
+		白<input type="text" onfocus="this.select();" id="w" size="5" value="0">
+		青<input type="text" onfocus="this.select();" id="b" size="5" value="0">
+		紫<input type="text" onfocus="this.select();" id="p" size="5" value="0">
+		金<input type="text" onfocus="this.select();" id="g" size="5" value="0"><br>
 		<input type="checkbox" id="dub" checked="checked">ドロップ2倍<br>
 		<input type="submit" id="cmdCalc" size="5" value="計算" onclick="Calc()"><br>
+	---<br>
+		素材必要数:
+		白<input type="text" onfocus="this.select();" id="req_w" size="5" value="420">
+		青<input type="text" onfocus="this.select();" id="req_b" size="5" value="160">
+		紫<input type="text" onfocus="this.select();" id="req_p" size="5" value="85">
+		金<input type="text" onfocus="this.select();" id="req_g" size="5" value="10"><br>
+		素材不足数:
+		白<input type="text" onfocus="this.select();" id="beh_w" size="5" value="420">
+		青<input type="text" onfocus="this.select();" id="beh_b" size="5" value="160">
+		紫<input type="text" onfocus="this.select();" id="beh_p" size="5" value="85">
+		金<input type="text" onfocus="this.select();" id="beh_g" size="5" value="10"><br>
 		<br>
-		---<br>
-		必要数:
-		白<input type="text" id="req_w" size="5" value="420">
-		青<input type="text" id="req_b" size="5" value="160">
-		紫<input type="text" id="req_p" size="5" value="85">
-		金<input type="text" id="req_g" size="5" value="10"><br>
-		不足数:
-		白<input type="text" id="beh_w" size="5" value="420">
-		青<input type="text" id="beh_b" size="5" value="160">
-		紫<input type="text" id="beh_p" size="5" value="85">
-		金<input type="text" id="beh_g" size="5" value="10"><br>
-		<br>
-		周回数（デイリー・ランダム分含めず）<br>
+		およその周回数（デイリー・ランダム分含めず）<br>
 		地獄　:
-		白<input type="text" id="round_iw" size="5" value="12">
-		青<input type="text" id="round_ib" size="5" value="14">
-		紫<input type="text" id="round_ip" size="5" value="15"><br>
+		白<input type="text" onfocus="this.select();" id="round_iw" size="5" value="12">
+		青<input type="text" onfocus="this.select();" id="round_ib" size="5" value="14">
+		紫<input type="text" onfocus="this.select();" id="round_ip" size="5" value="15"><br>
 		悪夢　:
-		白<input type="text" id="round_nw" size="5" value="15">
-		青<input type="text" id="round_nb" size="5" value="16">
-		紫<input type="text" id="round_np" size="5" value="22"><br>
+		白<input type="text" onfocus="this.select();" id="round_nw" size="5" value="15">
+		青<input type="text" onfocus="this.select();" id="round_nb" size="5" value="16">
+		紫<input type="text" onfocus="this.select();" id="round_np" size="5" value="22"><br>
 		困難　:
-		白<input type="text" id="round_hw" size="5" value="21">
-		青<input type="text" id="round_hb" size="5" value="27">
-		紫<input type="text" id="round_hp" size="5" value="43"><br>
-		<br>
+		白<input type="text" onfocus="this.select();" id="round_hw" size="5" value="21">
+		青<input type="text" onfocus="this.select();" id="round_hb" size="5" value="27">
+		紫<input type="text" onfocus="this.select();" id="round_hp" size="5" value="43"><br>
 	</form>
-	<script type="text/javascript">
-	function Calc() {
-		ssr_num = document.form1.ssr_num.value;
-		sr_num = document.form1.sr_num.value;
-		w = document.form1.w.value;
-		b = document.form1.b.value;
-		p = document.form1.p.value;
-		g = document.form1.g.value;
-		
-		//必要個数
-		req_w = (420*parseInt(ssr_num))+(230*parseInt(sr_num));
-		req_b = (160*parseInt(ssr_num))+(95*parseInt(sr_num));
-		req_p = (85*parseInt(ssr_num))+(50*parseInt(sr_num));
-		req_g = (10*parseInt(ssr_num))+(5*parseInt(sr_num));
-		document.form1.req_w.value = req_w;
-		document.form1.req_b.value = req_b;
-		document.form1.req_p.value = req_p;
-		document.form1.req_g.value = req_g;
-		
-		//不足数
-		beh_w = req_w - w;
-		beh_b = req_b - b;
-		beh_p = req_p - p;
-		beh_g = req_g - g;
-		document.form1.beh_w.value = beh_w;
-		document.form1.beh_b.value = beh_b;
-		document.form1.beh_p.value = beh_p;
-		document.form1.beh_g.value = beh_g;
-		
-		//周回数
-		inf = [18,6,3]
-		nig = [14,5,2]
-		hard = [10,3,1]
-		dub = document.form1.dub.checked;
-		if (dub == true){
-			for(i=0;i<3;i++){
-				inf[i] *= 2;
-				nig[i] *= 2;
-				hard[i] *= 2;
-			}
-		}
-		round_iw = (beh_w)/inf[0];
-		round_ib = (beh_b)/inf[1];
-		round_ip = (beh_p)/inf[2];
-		round_nw = (beh_w)/nig[0];
-		round_nb = (beh_b)/nig[1];
-		round_np = (beh_p)/nig[2];
-		round_hw = (beh_w)/hard[0];
-		round_hb = (beh_b)/hard[1];
-		round_hp = (beh_p)/hard[2];
-		document.form1.round_iw.value = Math.ceil(round_iw);
-		document.form1.round_ib.value = Math.ceil(round_ib);
-		document.form1.round_ip.value = Math.ceil(round_ip);
-		document.form1.round_nw.value = Math.ceil(round_nw);
-		document.form1.round_nb.value = Math.ceil(round_nb);
-		document.form1.round_np.value = Math.ceil(round_np);
-		document.form1.round_hw.value = Math.ceil(round_hw);
-		document.form1.round_hb.value = Math.ceil(round_hb);
-		document.form1.round_hp.value = Math.ceil(round_hp);
-	}
-	</script>
-	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E9%99%90%E7%95%8C%E7%AA%81%E7%A0%B4">必要数</a><br>
+	------<br>
+	<form name="form2" onSubmit="ExpCalc();return false;">
+		<h4>強化計算</h4>
+		現在のレベル<input type="text" onfocus="this.select();" id="level" size="5" value="1"><br>
+		<br>
+		同属性素材所持数<br>
+                白<input type="text" onfocus="this.select();" id="w" size="5" value="0">
+                青<input type="text" onfocus="this.select();" id="b" size="5" value="0">
+                紫<input type="text" onfocus="this.select();" id="p" size="5" value="0">
+                金<input type="text" onfocus="this.select();" id="g" size="5" value="0"><br>
+		<input type="checkbox" id="dub" checked="checked">ドロップ2倍<br>
+                <input type="submit" id="cmdCalc" size="5" value="計算" onclick="Calc()"><br>
+	---<br>
+		Lv70までに必要なおよその地獄周回数（デイリー分含めず、ランダム報酬は2個固定で計算）<br>
+		<input type="text" onfocus="this.select();" id="round_exp" size="5" value="17"><br>
+		およその経験値:<br>
+		<input type="text" onfocus="this.select();" id="reqexp" size="5" value="1000000">
+	</form>
+	------<br>
+	<script type="text/javascript" src="calc.js"></script>
+	<script type="text/javascript" src="expcalc.js"></script>
+	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E9%99%90%E7%95%8C%E7%AA%81%E7%A0%B4">限界突破必要数</a><br>
+	<table cellpadding=10>
+	<tr>
+	<td>
+		<table border=1 style="border-collapse: collapse">
+		<thead>
+		<tr>
+		<th align="right">SSR</th>
+		<th align="right">白</th>
+		<th align="right">青</th>
+		<th align="right">紫</th>
+		<th align="right">金</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td align="right">+1</td>
+		<td align="right">50</td>
+		<td align="right">20</td>
+		<td align="right">0</td>
+		<td align="right">0</td>
+		</tr>
+		<tr>
+		<td align="right">+2</td>
+		<td align="right">100</td>
+		<td align="right">40</td>
+		<td align="right">35</td>
+		<td align="right">4</td>
+		</tr>
+		<tr>
+		<td align="right">+3</td>
+		<td align="right">270</td>
+		<td align="right">100</td>
+		<td align="right">50</td>
+		<td align="right">6</td>
+		</tr>
+		<tr>
+		<td align="right">計</td>
+		<td align="right">420</td>
+		<td align="right">160</td>
+		<td align="right">85</td>
+		<td align="right">10</td>
+		</tr>
+		</tbody>
+		</table>
+	</td>
+	<td>
+		<table border=1 style="border-collapse: collapse">
+		<thead>
+		<tr>
+		<th align="right">SR</th>
+		<th align="right">白</th>
+		<th align="right">青</th>
+		<th align="right">紫</th>
+		<th align="right">金</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+		<td align="right">+1</td>
+		<td align="right">30</td>
+		<td align="right">15</td>
+		<td align="right">0</td>
+		<td align="right">0</td>
+		</tr>
+		<tr>
+		<td align="right">+2</td>
+		<td align="right">80</td>
+		<td align="right">30</td>
+		<td align="right">20</td>
+		<td align="right">2</td>
+		</tr>
+		<tr>
+		<td align="right">+3</td>
+		<td align="right">120</td>
+		<td align="right">50</td>
+		<td align="right">30</td>
+		<td align="right">3</td>
+		</tr>
+		<tr>
+		<td align="right">計</td>
+		<td align="right">230</td>
+		<td align="right">95</td>
+		<td align="right">50</td>
+		<td align="right">5</td>
+		</tr>
+		</tbody>
+		</table>
+	</td>
+	</tr>
+	</table>
+
+	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E7%B5%8C%E9%A8%93%E5%80%A4%E3%81%A8%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB">経験値テーブル</a><br>
+	<table border=1 style="border-collapse: collapse">
+		<thead>
+                <tr>
+                <th align="right">Lv</th>
+                <th align="right">必要経験値</th>
+                </tr>
+                </thead>
+		<tbody>
+                <tr>
+                <td align="right">40</td>
+                <td align="right">158,033</td>
+		</tr>
+                <tr>
+                <td align="right">50</td>
+                <td align="right">329,704</td>
+		</tr>
+                <tr>
+                <td align="right">60</td>
+                <td align="right">601,454</td>
+		</tr>
+                <tr>
+                <td align="right">70</td>
+                <td align="right">1,000,000</td>
+		</tr>
+		</tbody>
+	</table>
+	<br>
+	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/Bounty%E3%81%AE%E5%A0%B1%E9%85%AC#%E3%82%AD%E3%83%A3%E3%83%A9%E5%BC%B7%E5%8C%96%E7%B4%A0%E6%9D%90">地獄1周で得られる経験値</a>は<br>
+	(クリア報酬*特許ボーナス+ランダム報酬)*同属性ボーナス<br>
+	=((青3紫1)*2+(青2))*1.5<br>
+	=((2500*3+10000*1)*2+(2500*2))*1.5<br>
+	=60000<br>
+	で計算<br>
+	<br>
 	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki">ガルカフェメモ</a><br>
 	---<br>
 	Thanks.<br>
@@ -115,6 +208,7 @@
 	<a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570361440/413">【ガルカフェ】ガール・カフェ・ガン Part.43 >>413</a><br>
 	<br>
 	---<br>
-	20191009 覚醒対象の数を指定できるように変更
+	20191017 +数を入力できるようにした。レベルの計算を追加した。<br>
+	20191009 限界突破対象の数を指定できるようにした。
 </body>
 </html>
