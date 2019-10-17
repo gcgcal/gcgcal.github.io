@@ -1,6 +1,9 @@
 <html>
 <head>
 	<title>GCG Calc</title>
+	  <link crossorigin="anonymous" media="all" integrity="sha512-0zW8Tet7sPvYAFaQsMAZGwWUqQifQiHA/MroWFu+Sd+/LVsCOQXqSt2WYDjeXmyCjwPO6Nfb1vYnvGChRkshqg==" rel="stylesheet" href="https://github.githubassets.com/assets/frameworks-4e0c320dc6f7f92f54b76793b3bc3c9c.css" />
+
+    <link crossorigin="anonymous" media="all" integrity="sha512-eoY3l/ieX0dEAjPYkTQlhP+8ftZvI9xA5T0hjt8i3J3ajaGkNtGg9+SkoKpy5wyvb01MnRThfk14AujVn8HnEw==" rel="stylesheet" href="https://github.githubassets.com/assets/github-3ab4ccd9d839f43daf2e269b18868444.css" />
 </head>
 <body>
 	<!-- イーコスこすこす -->
@@ -9,54 +12,55 @@
 		<h4>限界突破素材計算</h4>
 		限界突破対象<br>
 		SSR<br>
-		+0<input type="tel" onfocus="this.select();" id="ssr0_num" size="5" value="1">
-		+1<input type="tel" onfocus="this.select();" id="ssr1_num" size="5" value="0">
-		+2<input type="tel" onfocus="this.select();" id="ssr2_num" size="5" value="0">
+		+0:<input type="tel" onfocus="this.select();" id="ssr0_num" size="5" value="1">
+		+1:<input type="tel" onfocus="this.select();" id="ssr1_num" size="5" value="0">
+		+2:<input type="tel" onfocus="this.select();" id="ssr2_num" size="5" value="0">
 		<br>
 		<br>
 		SR<br>
-		+0<input type="tel" onfocus="this.select();" id="sr0_num" size="5" value="0">
-		+1<input type="tel" onfocus="this.select();" id="sr1_num" size="5" value="0">
-		+2<input type="tel" onfocus="this.select();" id="sr2_num" size="5" value="0">
+		+0:<input type="tel" onfocus="this.select();" id="sr0_num" size="5" value="0">
+		+1:<input type="tel" onfocus="this.select();" id="sr1_num" size="5" value="0">
+		+2:<input type="tel" onfocus="this.select();" id="sr2_num" size="5" value="0">
 		<br>
 		<br>
 		素材所持数<br>
-		白<input type="tel" onfocus="this.select();" id="w" size="5" value="0">
-		青<input type="tel" onfocus="this.select();" id="b" size="5" value="0">
-		紫<input type="tel" onfocus="this.select();" id="p" size="5" value="0">
-		金<input type="tel" onfocus="this.select();" id="g" size="5" value="0"><br>
+		白:<input type="tel" onfocus="this.select();" id="w" size="5" value="0">
+		青:<input type="tel" onfocus="this.select();" id="b" size="5" value="0">
+		紫:<input type="tel" onfocus="this.select();" id="p" size="5" value="0">
+		金:<input type="tel" onfocus="this.select();" id="g" size="5" value="0"><br>
 		<input type="checkbox" id="dub" checked="checked">ドロップ2倍<br>
 		<input type="submit" id="cmdCalc" size="5" value="計算" onclick="Calc()"><br>
 	---<br>
 		素材必要数:
-		白<input type="tel" onfocus="this.select();" id="req_w" size="5" value="420">
-		青<input type="tel" onfocus="this.select();" id="req_b" size="5" value="160">
-		紫<input type="tel" onfocus="this.select();" id="req_p" size="5" value="85">
-		金<input type="tel" onfocus="this.select();" id="req_g" size="5" value="10"><br>
+		白:<input type="tel" onfocus="this.select();" id="req_w" size="5" value="420">
+		青:<input type="tel" onfocus="this.select();" id="req_b" size="5" value="160">
+		紫:<input type="tel" onfocus="this.select();" id="req_p" size="5" value="85">
+		金:<input type="tel" onfocus="this.select();" id="req_g" size="5" value="10"><br>
 		素材不足数:
-		白<input type="tel" onfocus="this.select();" id="beh_w" size="5" value="420">
-		青<input type="tel" onfocus="this.select();" id="beh_b" size="5" value="160">
-		紫<input type="tel" onfocus="this.select();" id="beh_p" size="5" value="85">
-		金<input type="tel" onfocus="this.select();" id="beh_g" size="5" value="10"><br>
+		白:<input type="tel" onfocus="this.select();" id="beh_w" size="5" value="420">
+		青:<input type="tel" onfocus="this.select();" id="beh_b" size="5" value="160">
+		紫:<input type="tel" onfocus="this.select();" id="beh_p" size="5" value="85">
+		金:<input type="tel" onfocus="this.select();" id="beh_g" size="5" value="10"><br>
 		<br>
 		およその周回数（デイリー・ランダム分含めず）<br>
 		地獄　:
-		白<input type="tel" onfocus="this.select();" id="round_iw" size="5" value="12">
-		青<input type="tel" onfocus="this.select();" id="round_ib" size="5" value="14">
-		紫<input type="tel" onfocus="this.select();" id="round_ip" size="5" value="15"><br>
+		白:<input type="tel" onfocus="this.select();" id="round_iw" size="5" value="12">
+		青:<input type="tel" onfocus="this.select();" id="round_ib" size="5" value="14">
+		紫:<input type="tel" onfocus="this.select();" id="round_ip" size="5" value="15"><br>
 		悪夢　:
-		白<input type="tel" onfocus="this.select();" id="round_nw" size="5" value="15">
-		青<input type="tel" onfocus="this.select();" id="round_nb" size="5" value="16">
-		紫<input type="tel" onfocus="this.select();" id="round_np" size="5" value="22"><br>
+		白:<input type="tel" onfocus="this.select();" id="round_nw" size="5" value="15">
+		青:<input type="tel" onfocus="this.select();" id="round_nb" size="5" value="16">
+		紫:<input type="tel" onfocus="this.select();" id="round_np" size="5" value="22"><br>
 		困難　:
-		白<input type="tel" onfocus="this.select();" id="round_hw" size="5" value="21">
-		青<input type="tel" onfocus="this.select();" id="round_hb" size="5" value="27">
-		紫<input type="tel" onfocus="this.select();" id="round_hp" size="5" value="43"><br>
+		白:<input type="tel" onfocus="this.select();" id="round_hw" size="5" value="21">
+		青:<input type="tel" onfocus="this.select();" id="round_hb" size="5" value="27">
+		紫:<input type="tel" onfocus="this.select();" id="round_hp" size="5" value="43"><br>
 	</form>
 	------<br>
 	<form name="form2" onSubmit="ExpCalc();return false;">
 		<h4>強化計算</h4>
-		現在のレベル<input type="tel" onfocus="this.select();" id="level" size="5" value="1"><br>
+		現在のレベル<br>
+		<input type="tel" onfocus="this.select();" id="level" size="5" value="1"><br>
 		<br>
 		同属性素材所持数<br>
                 白<input type="tel" onfocus="this.select();" id="w" size="5" value="0">
@@ -165,7 +169,7 @@
 	</td>
 	</tr>
 	</table>
-
+	<br>
 	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E7%B5%8C%E9%A8%93%E5%80%A4%E3%81%A8%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB">経験値テーブル</a><br>
 	<table border=1 style="border-collapse: collapse">
 		<thead>
