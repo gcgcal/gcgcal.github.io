@@ -21,4 +21,5 @@ function DbCalc() {
 		getexp -= exptable[i]-exptable[i-1];
 	}
 	document.dbcalc.rem.value = Math.ceil(i-1);
+	document.expcalc.level.value = Math.ceil(i-1);
 }
