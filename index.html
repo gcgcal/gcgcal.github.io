@@ -10,7 +10,7 @@
 	<h1>ガルカフェ 計算機</h1>
 	---
 	<h2>限界突破素材計算</h2>
-	+3まで限界突破するのに必要な素材の数と素材を集めるのに必要なBountyの周回数を計算します。
+	+3まで限界突破するのに必要な素材の数と素材を集めるのに必要なBountyの周回数を計算します。<br>
 	<form name="form1" onSubmit="Calc();return false;">
 		限界突破対象<br>
 		SSR<br>
@@ -55,7 +55,7 @@
 	</form>
 	------<br>
 	<h2>強化計算</h2>
-	Lv70までに必要な経験値と素材を集めるのに必要なBounty地獄級の周回数を計算します。同属性ボーナス適用が前提。
+	Lv70までに必要な経験値と素材を集めるのに必要なBounty地獄級の周回数を計算します。同属性ボーナス適用が前提。<br>
 	<form name="form2" onSubmit="ExpCalc();return false;">
 		現在のレベル<br>
 		<input type="tel" onfocus="this.select();" id="level" size="2" value="1"><br>
@@ -72,8 +72,9 @@
 		<input type="tel" onfocus="this.select();" id="reqexp" size="7" value="1000000"> / 
 		クリスタル
 		<input type="tel" onfocus="this.select();" id="reqcry" size="7" value="666667"><br>
-		地獄周回数（デイリー分含めず、ランダム報酬は2個固定で計算）<br>
-		<input type="tel" onfocus="this.select();" id="round_exp" size="3" value="17"><br>
+		地獄
+		<input type="tel" onfocus="this.select();" id="round_exp" size="3" value="17">
+		周（デイリー分含めず、ランダム報酬は2個固定で計算）<br>
 	</form>
 	------<br>
 	<script type="text/javascript" src="calc.js"></script>
