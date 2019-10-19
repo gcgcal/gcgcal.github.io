@@ -11,7 +11,7 @@
 	---
 	<h2>限界突破素材計算</h2>
 	+3まで限界突破するのに必要な素材の数と素材を集めるのに必要なBountyの周回数を計算します。<br>
-	<form name="form1" onSubmit="Calc();return false;">
+	<form name="lbcalc" onSubmit="Calc();return false;">
 		限界突破対象<br>
 		SSR<br>
 		+0:<input type="tel" onfocus="this.select();" id="ssr0_num" size="2" value="1">
@@ -29,12 +29,13 @@
 		<input type="checkbox" id="dub" checked="checked">ドロップ2倍<br>
 		<input type="submit" id="cmdCalc" size="1" value="計算" onclick="Calc()"><br>
 	---<br>
-		素材必要数:
+		素材<br>
+		必要数:
 		白:<input type="tel" onfocus="this.select();" id="req_w" size="4" value="420">
 		青:<input type="tel" onfocus="this.select();" id="req_b" size="4" value="160">
 		紫:<input type="tel" onfocus="this.select();" id="req_p" size="4" value="85">
 		金:<input type="tel" onfocus="this.select();" id="req_g" size="4" value="10"><br>
-		素材不足数:
+		不足数:
 		白:<input type="tel" onfocus="this.select();" id="beh_w" size="4" value="420">
 		青:<input type="tel" onfocus="this.select();" id="beh_b" size="4" value="160">
 		紫:<input type="tel" onfocus="this.select();" id="beh_p" size="4" value="85">
@@ -54,9 +55,35 @@
 		紫:<input type="tel" onfocus="this.select();" id="round_hp" size="3" value="43"><br>
 	</form>
 	------<br>
-	<h2>強化計算</h2>
+	<h2>レベルアップ計算</h2>
+	強化素材の数からLvがどこまで上がるか計算します。<br>
+	武器は他属性が適用できます。
+	<form name="dbcalc" onSubmit="DbCalc();return false;">
+		素材所持数<br>
+		同属性
+                白:<input type="tel" onfocus="this.select();" id="wb" size="3" value="0">
+                青:<input type="tel" onfocus="this.select();" id="bb" size="3" value="0">
+                紫:<input type="tel" onfocus="this.select();" id="pb" size="3" value="0">
+                金:<input type="tel" onfocus="this.select();" id="gb" size="3" value="0"><br>
+		他属性
+                白:<input type="tel" onfocus="this.select();" id="w" size="3" value="0">
+                青:<input type="tel" onfocus="this.select();" id="b" size="3" value="0">
+                紫:<input type="tel" onfocus="this.select();" id="p" size="3" value="0">
+                金:<input type="tel" onfocus="this.select();" id="g" size="3" value="0"><br>
+
+                <input type="submit" id="cmdCalc" size="1" value="計算" onclick="Calc()"><br>
+	---<br>
+		得られる経験値
+		<input type="tel" onfocus="this.select();" id="exp" size="7" value="0"> <br> 
+		消費クリスタル
+		<input type="tel" onfocus="this.select();" id="cry" size="7" value="0"><br>
+		Lv70が<input type="tel" onfocus="this.select();" id="lv70" size="3" value="0">人、
+		Lv<input type="tel" onfocus="this.select();" id="rem" size="3" value="1">が1人できます。<br>
+	</form>
+	------<br>
+	<h2>必要経験値計算</h2>
 	Lv70までに必要な経験値と素材を集めるのに必要なBounty地獄級の周回数を計算します。同属性ボーナス適用が前提。<br>
-	<form name="form2" onSubmit="ExpCalc();return false;">
+	<form name="expcalc" onSubmit="ExpCalc();return false;">
 		現在のレベル<br>
 		<input type="tel" onfocus="this.select();" id="level" size="2" value="1"><br>
 		素材所持数<br>
@@ -67,11 +94,13 @@
 		<input type="checkbox" id="dub" checked="checked">ドロップ2倍<br>
                 <input type="submit" id="cmdCalc" size="1" value="計算" onclick="Calc()"><br>
 	---<br>
-		Lv70までに必要な...<br>
-		経験値
-		<input type="tel" onfocus="this.select();" id="reqexp" size="7" value="1000000"> / 
+		Lv70までに必要な残りの経験値
+		<input type="tel" onfocus="this.select();" id="reqexp" size="7" value="1000000">
+		<!--
 		クリスタル
-		<input type="tel" onfocus="this.select();" id="reqcry" size="7" value="666667"><br>
+	  	<input type="tel" onfocus="this.select();" id="reqcry" size="7" value="666667"><br>
+		-->
+		<input type="hidden" onfocus="this.select();" id="reqcry" size="7" value="666667"><br>
 		地獄
 		<input type="tel" onfocus="this.select();" id="round_exp" size="3" value="17">
 		周（デイリー分含めず、ランダム報酬は2個固定で計算）<br>
@@ -79,6 +108,7 @@
 	------<br>
 	<script type="text/javascript" src="calc.js"></script>
 	<script type="text/javascript" src="expcalc.js"></script>
+	<script type="text/javascript" src="db.js"></script>
 	<h2>付録</h2>
 	<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E9%99%90%E7%95%8C%E7%AA%81%E7%A0%B4">限界突破必要数</a><br>
 	<table cellpadding=10>
@@ -214,7 +244,8 @@
 	<a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570361440/413">【ガルカフェ】ガール・カフェ・ガン Part.43 >>413</a><br>
 	<br>
 	---<br>
-	20191017 +数を入力できるようにした。レベルの計算を追加した。<br>
+	20191019 手持ちのDBでどこまで上がるか計算を追加した<br>
+	20191017 +数を入力できるようにした。Lv70までの周回数計算を追加した。<br>
 	20191009 限界突破対象の数を指定できるようにした。
 </body>
 </html>
