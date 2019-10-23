@@ -1,297 +1,281 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-	<meta charset="UTF-8">
-	<title>ガルカフェ 計算機</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" href="style.css">
-
-	<script type="text/javascript" src="calc.js"></script>
-	<script type="text/javascript" src="expcalc.js"></script>
-	<script type="text/javascript" src="db.js"></script>
-</head>
-<body>
-	<!-- イーコスこすこす -->
-	<header class="header">
+	<head>
+		<meta charset="UTF-8">
+		<title>ガルカフェ 計算機</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="style.css">
+		<script type="text/javascript" src="calc.js"></script>
+		<script type="text/javascript" src="expcalc.js"></script>
+		<script type="text/javascript" src="db.js"></script>
+	</head>
+	<body>
+		<!-- イーコスこすこす -->
+		<header class="header">
+			<div class="contents">
+				<h1 class="lv1">ガルカフェ 計算機</h1>
+			</div>
+		</header>
 		<div class="contents">
-			<h1 class="lv1">ガルカフェ 計算機</h1>
-		</div>
-	</header>
-	<div class="contents">
-		<h2>限界突破素材計算</h2>
-		<p>+3まで限界突破するのに必要な素材の数と素材を集めるのに必要なBountyの周回数を計算します。</p>
-		<form name="lbcalc" onSubmit="Calc();return false;">
-			<h3>限界突破対象</h3>
-			<label for="ssr0_num" class="label">SSR</label>
-			+0:<input type="tel" onfocus="this.select();" id="ssr0_num" size="2" value="1">
-			+1:<input type="tel" onfocus="this.select();" id="ssr1_num" size="2" value="0">
-			+2:<input type="tel" onfocus="this.select();" id="ssr2_num" size="2" value="0"><br>
-			<label for="sr0_num" class="label">SR</label>
-			+0:<input type="tel" onfocus="this.select();" id="sr0_num" size="2" value="0">
-			+1:<input type="tel" onfocus="this.select();" id="sr1_num" size="2" value="0">
-			+2:<input type="tel" onfocus="this.select();" id="sr2_num" size="2" value="0"><br>
-			<label for="w" class="label">素材所持数</label>
-			白:<input type="tel" onfocus="this.select();" id="w" size="3" value="0">
-			青:<input type="tel" onfocus="this.select();" id="b" size="3" value="0">
-			紫:<input type="tel" onfocus="this.select();" id="p" size="3" value="0">
-			金:<input type="tel" onfocus="this.select();" id="g" size="3" value="0"><br>
-		
-			<div class="check-wrap">
-				<label class="check"><input type="checkbox" id="dub" checked="checked">ドロップ2倍</label>
+			<h2>限界突破素材計算</h2>
+			<p>+3まで限界突破するのに必要な素材の数と素材を集めるのに必要なBountyの周回数を計算します。</p>
+			<form name="lbcalc" onSubmit="Calc();return false;">
+				<h3>限界突破対象</h3>
+				<label for="ssr0_num" class="label">SSR</label>
+				+0:<input type="tel" onfocus="this.select();" id="ssr0_num" size="2" value="1">
+				+1:<input type="tel" onfocus="this.select();" id="ssr1_num" size="2" value="0">
+				+2:<input type="tel" onfocus="this.select();" id="ssr2_num" size="2" value="0"><br>
+				<label for="sr0_num" class="label">SR</label>
+				+0:<input type="tel" onfocus="this.select();" id="sr0_num" size="2" value="0">
+				+1:<input type="tel" onfocus="this.select();" id="sr1_num" size="2" value="0">
+				+2:<input type="tel" onfocus="this.select();" id="sr2_num" size="2" value="0"><br>
+				<label for="w" class="label">素材所持数</label>
+				白:<input type="tel" onfocus="this.select();" id="w" size="3" value="0">
+				青:<input type="tel" onfocus="this.select();" id="b" size="3" value="0">
+				紫:<input type="tel" onfocus="this.select();" id="p" size="3" value="0">
+				金:<input type="tel" onfocus="this.select();" id="g" size="3" value="0"><br>
+				<div class="check-wrap">
+					<label class="check"><input type="checkbox" id="dub" checked="checked">ドロップ2倍</label>
+				</div>
+				<div class="button-wrap">
+					<input type="submit" id="cmdCalc" size="1" value="計算" onclick="Calc()" class="button">
+				</div>
+				<fieldset class="result">
+					<legend>計算結果</legend>
+					<h3>素材</h3>
+					<label for="req_w">必要数:</label>
+					白:<input readonly type="tel" onfocus="this.select();" id="req_w" size="4" value="420" class="input-w">
+					青:<input readonly type="tel" onfocus="this.select();" id="req_b" size="4" value="160" class="input-b">
+					紫:<input readonly type="tel" onfocus="this.select();" id="req_p" size="4" value="85" class="input-p">
+					金:<input readonly type="tel" onfocus="this.select();" id="req_g" size="4" value="10" class="input-g"><br>
+					<label for="beh_w">不足数:</label>
+					白:<input readonly type="tel" onfocus="this.select();" id="beh_w" size="4" value="420" class="input-w">
+					青:<input readonly type="tel" onfocus="this.select();" id="beh_b" size="4" value="160" class="input-b">
+					紫:<input readonly type="tel" onfocus="this.select();" id="beh_p" size="4" value="85" class="input-p">
+					金:<input readonly type="tel" onfocus="this.select();" id="beh_g" size="4" value="10" class="input-g"><br>
+					<h3>周回数（デイリー・ランダム分含めず）</h3>
+					<label for="round_iw">地獄　:</label>
+					白:<input readonly type="tel" onfocus="this.select();" id="round_iw" size="3" value="12" class="input-w">
+					青:<input readonly type="tel" onfocus="this.select();" id="round_ib" size="3" value="14" class="input-b">
+					紫:<input readonly type="tel" onfocus="this.select();" id="round_ip" size="3" value="15" class="input-p"><br>
+					<label for="round_nw">悪夢　:</label>
+					白:<input type="tel" onfocus="this.select();" id="round_nw" size="3" value="15" class="input-w">
+					青:<input type="tel" onfocus="this.select();" id="round_nb" size="3" value="16" class="input-b">
+					紫:<input type="tel" onfocus="this.select();" id="round_np" size="3" value="22" class="input-p"><br>
+					<label for="round_hw">困難　:</label>
+					白:<input type="tel" onfocus="this.select();" id="round_hw" size="3" value="21" class="input-w">
+					青:<input type="tel" onfocus="this.select();" id="round_hb" size="3" value="27" class="input-b">
+					紫:<input type="tel" onfocus="this.select();" id="round_hp" size="3" value="43" class="input-p">
+				</fieldset>
+			</form>
+			<h2>レベルアップ計算</h2>
+			<p>強化素材の数からLvがどこまで上がるか計算します。<br>
+				武器は他属性が適用できます。
+			</p>
+			<form name="dbcalc" onSubmit="DbCalc();return false;">
+				<h3>素材所持数</h3>
+				<label for="wb" class="label">同属性</label>
+				白:<input type="tel" onfocus="this.select();" id="wb" size="3" value="0">
+				青:<input type="tel" onfocus="this.select();" id="bb" size="3" value="0">
+				紫:<input type="tel" onfocus="this.select();" id="pb" size="3" value="0">
+				金:<input type="tel" onfocus="this.select();" id="gb" size="3" value="0"><br>
+				<label for="w" class="label">他属性</label>
+				白:<input type="tel" onfocus="this.select();" id="w" size="3" value="0">
+				青:<input type="tel" onfocus="this.select();" id="b" size="3" value="0">
+				紫:<input type="tel" onfocus="this.select();" id="p" size="3" value="0">
+				金:<input type="tel" onfocus="this.select();" id="g" size="3" value="0"><br>
+				<div class="button-wrap">
+					<input type="submit" id="cmdCalc" size="1" value="計算" onclick="Calc()" class="button">
+				</div>
+				<fieldset class="result">
+					<legend>計算結果</legend>
+					<label for="exp">得られる経験値</label>
+					<input type="tel" onfocus="this.select();" id="exp" size="7" value="0"> <br> 
+					<label for="cry">消費クリスタル</label>
+					<input type="tel" onfocus="this.select();" id="cry" size="7" value="0"><br>
+					Lv70が<input type="tel" onfocus="this.select();" id="lv70" size="3" value="0">人、
+					Lv<input type="tel" onfocus="this.select();" id="rem" size="3" value="1">が1人できます。
+				</fieldset>
+			</form>
+			<h2>必要経験値計算</h2>
+			<p>Lv70までに必要な経験値と素材を集めるのに必要なBounty地獄級の周回数を計算します。同属性ボーナス適用が前提。</p>
+			<form name="expcalc" onSubmit="ExpCalc();return false;">
+				<label for="level" class="label-bold">現在のレベル</label>
+				<input type="tel" onfocus="this.select();" id="level" size="2" value="1"><br>
+				<label class="label">素材所持数</label>
+				白<input type="tel" onfocus="this.select();" id="w" size="3" value="0">
+				青<input type="tel" onfocus="this.select();" id="b" size="3" value="0">
+				紫<input type="tel" onfocus="this.select();" id="p" size="3" value="0">
+				金<input type="tel" onfocus="this.select();" id="g" size="3" value="0"><br>
+				<div class="check-wrap">
+					<label class="check"><input type="checkbox" id="dub" checked="checked">ドロップ2倍</label>
+				</div>
+				<div class="button-wrap">
+					<input type="submit" id="cmdCalc" size="1" value="計算" onclick="Calc()" class="button">
+				</div>
+				<fieldset class="result">
+					<legend>計算結果</legend>
+					Lv70までに必要な残りの経験値
+					<input type="tel" onfocus="this.select();" id="reqexp" size="8" value="1000000">
+					<!--
+						クリスタル
+						 	<input type="tel" onfocus="this.select();" id="reqcry" size="7" value="666667"><br>
+						-->
+					<input type="hidden" onfocus="this.select();" id="reqcry" size="7" value="666667"><br>
+					地獄
+					<input type="tel" onfocus="this.select();" id="round_exp" size="3" value="17">
+					周<small>（デイリー分含めず、ランダム報酬は2個固定で計算）</small>
+				</fieldset>
+			</form>
+			<h2>付録</h2>
+			<div class="ref">
+				<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E9%99%90%E7%95%8C%E7%AA%81%E7%A0%B4">限界突破必要数</a>
 			</div>
-		
-			<div class="button-wrap">
-				<input type="submit" id="cmdCalc" size="1" value="計算" onclick="Calc()" class="button">
-			</div>
-		
-			<fieldset class="result">
-				<legend>計算結果</legend>
-				<h3>素材</h3>
-				<label for="req_w">必要数:</label>
-				白:<input readonly type="tel" onfocus="this.select();" id="req_w" size="4" value="420" class="input-w">
-				青:<input readonly type="tel" onfocus="this.select();" id="req_b" size="4" value="160" class="input-b">
-				紫:<input readonly type="tel" onfocus="this.select();" id="req_p" size="4" value="85" class="input-p">
-				金:<input readonly type="tel" onfocus="this.select();" id="req_g" size="4" value="10" class="input-g"><br>
-				<label for="beh_w">不足数:</label>
-				白:<input readonly type="tel" onfocus="this.select();" id="beh_w" size="4" value="420" class="input-w">
-				青:<input readonly type="tel" onfocus="this.select();" id="beh_b" size="4" value="160" class="input-b">
-				紫:<input readonly type="tel" onfocus="this.select();" id="beh_p" size="4" value="85" class="input-p">
-				金:<input readonly type="tel" onfocus="this.select();" id="beh_g" size="4" value="10" class="input-g"><br>
-				<h3>周回数（デイリー・ランダム分含めず）</h3>
-				<label for="round_iw">地獄　:</label>
-				白:<input readonly type="tel" onfocus="this.select();" id="round_iw" size="3" value="12" class="input-w">
-				青:<input readonly type="tel" onfocus="this.select();" id="round_ib" size="3" value="14" class="input-b">
-				紫:<input readonly type="tel" onfocus="this.select();" id="round_ip" size="3" value="15" class="input-p"><br>
-				<label for="round_nw">悪夢　:</label>
-				白:<input type="tel" onfocus="this.select();" id="round_nw" size="3" value="15" class="input-w">
-				青:<input type="tel" onfocus="this.select();" id="round_nb" size="3" value="16" class="input-b">
-				紫:<input type="tel" onfocus="this.select();" id="round_np" size="3" value="22" class="input-p"><br>
-				<label for="round_hw">困難　:</label>
-				白:<input type="tel" onfocus="this.select();" id="round_hw" size="3" value="21" class="input-w">
-				青:<input type="tel" onfocus="this.select();" id="round_hb" size="3" value="27" class="input-b">
-				紫:<input type="tel" onfocus="this.select();" id="round_hp" size="3" value="43" class="input-p">
-			</fieldset>
-		</form>
-
-		<h2>レベルアップ計算</h2>
-		<p>強化素材の数からLvがどこまで上がるか計算します。<br>
-			武器は他属性が適用できます。</p>
-		<form name="dbcalc" onSubmit="DbCalc();return false;">
-			<h3>素材所持数</h3>
-			<label for="wb" class="label">同属性</label>
-		                白:<input type="tel" onfocus="this.select();" id="wb" size="3" value="0">
-		                青:<input type="tel" onfocus="this.select();" id="bb" size="3" value="0">
-		                紫:<input type="tel" onfocus="this.select();" id="pb" size="3" value="0">
-		                金:<input type="tel" onfocus="this.select();" id="gb" size="3" value="0"><br>
-			<label for="w" class="label">他属性</label>
-		                白:<input type="tel" onfocus="this.select();" id="w" size="3" value="0">
-		                青:<input type="tel" onfocus="this.select();" id="b" size="3" value="0">
-		                紫:<input type="tel" onfocus="this.select();" id="p" size="3" value="0">
-		                金:<input type="tel" onfocus="this.select();" id="g" size="3" value="0"><br>
-		
-		                <div class="button-wrap">
-		                	<input type="submit" id="cmdCalc" size="1" value="計算" onclick="Calc()" class="button">
-		                </div>
-		
-
-			<fieldset class="result">
-				<legend>計算結果</legend>
-				<label for="exp">得られる経験値</label>
-				<input type="tel" onfocus="this.select();" id="exp" size="7" value="0"> <br> 
-				<label for="cry">消費クリスタル</label>
-				<input type="tel" onfocus="this.select();" id="cry" size="7" value="0"><br>
-				Lv70が<input type="tel" onfocus="this.select();" id="lv70" size="3" value="0">人、
-				Lv<input type="tel" onfocus="this.select();" id="rem" size="3" value="1">が1人できます。
-			</fieldset>
-		</form>
-
-		<h2>必要経験値計算</h2>
-		<p>Lv70までに必要な経験値と素材を集めるのに必要なBounty地獄級の周回数を計算します。同属性ボーナス適用が前提。</p>
-		<form name="expcalc" onSubmit="ExpCalc();return false;">
-			<label for="level" class="label-bold">現在のレベル</label>
-			<input type="tel" onfocus="this.select();" id="level" size="2" value="1"><br>
-			<label class="label">素材所持数</label>
-		                白<input type="tel" onfocus="this.select();" id="w" size="3" value="0">
-		                青<input type="tel" onfocus="this.select();" id="b" size="3" value="0">
-		                紫<input type="tel" onfocus="this.select();" id="p" size="3" value="0">
-		                金<input type="tel" onfocus="this.select();" id="g" size="3" value="0"><br>
-			<div class="check-wrap">
-				<label class="check"><input type="checkbox" id="dub" checked="checked">ドロップ2倍</label>
-			</div>
-
-		                <div class="button-wrap">
-		                	<input type="submit" id="cmdCalc" size="1" value="計算" onclick="Calc()" class="button">
-		                </div>
-
-			<fieldset class="result">
-				<legend>計算結果</legend>
-			Lv70までに必要な残りの経験値
-			<input type="tel" onfocus="this.select();" id="reqexp" size="8" value="1000000">
-			<!--
-			クリスタル
-		  	<input type="tel" onfocus="this.select();" id="reqcry" size="7" value="666667"><br>
-			-->
-			<input type="hidden" onfocus="this.select();" id="reqcry" size="7" value="666667"><br>
-			地獄
-				<input type="tel" onfocus="this.select();" id="round_exp" size="3" value="17">
-				周<small>（デイリー分含めず、ランダム報酬は2個固定で計算）</small>
-			</fieldset>
-		</form>
-
-		
-		<h2>付録</h2>
-		<div class="ref">
-			<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E9%99%90%E7%95%8C%E7%AA%81%E7%A0%B4">限界突破必要数</a>
-		</div>
-		<table cellpadding=10>
-		<tr>
-		<td class="none">
-			<table border=1 style="border-collapse: collapse">
-			<thead>
-			<tr>
-			<th align="right">SSR</th>
-			<th align="right" class="input-w">白</th>
-			<th align="right" class="input-b">青</th>
-			<th align="right" class="input-p">紫</th>
-			<th align="right" class="input-g">金</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td align="right">+1</td>
-			<td align="right">50</td>
-			<td align="right">20</td>
-			<td align="right">0</td>
-			<td align="right">0</td>
-			</tr>
-			<tr>
-			<td align="right">+2</td>
-			<td align="right">100</td>
-			<td align="right">40</td>
-			<td align="right">35</td>
-			<td align="right">4</td>
-			</tr>
-			<tr>
-			<td align="right">+3</td>
-			<td align="right">270</td>
-			<td align="right">100</td>
-			<td align="right">50</td>
-			<td align="right">6</td>
-			</tr>
-			<tr class="table-result">
-			<td align="right">計</td>
-			<td align="right">420</td>
-			<td align="right">160</td>
-			<td align="right">85</td>
-			<td align="right">10</td>
-			</tr>
-			</tbody>
+			<table cellpadding=10>
+				<tr>
+					<td class="none">
+						<table border=1 style="border-collapse: collapse">
+							<thead>
+								<tr>
+									<th align="right">SSR</th>
+									<th align="right" class="input-w">白</th>
+									<th align="right" class="input-b">青</th>
+									<th align="right" class="input-p">紫</th>
+									<th align="right" class="input-g">金</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="right">+1</td>
+									<td align="right">50</td>
+									<td align="right">20</td>
+									<td align="right">0</td>
+									<td align="right">0</td>
+								</tr>
+								<tr>
+									<td align="right">+2</td>
+									<td align="right">100</td>
+									<td align="right">40</td>
+									<td align="right">35</td>
+									<td align="right">4</td>
+								</tr>
+								<tr>
+									<td align="right">+3</td>
+									<td align="right">270</td>
+									<td align="right">100</td>
+									<td align="right">50</td>
+									<td align="right">6</td>
+								</tr>
+								<tr class="table-result">
+									<td align="right">計</td>
+									<td align="right">420</td>
+									<td align="right">160</td>
+									<td align="right">85</td>
+									<td align="right">10</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td class="none-right">
+						<table border=1 style="border-collapse: collapse">
+							<thead>
+								<tr>
+									<th align="right">SR</th>
+									<th align="right" class="input-w">白</th>
+									<th align="right" class="input-b">青</th>
+									<th align="right" class="input-p">紫</th>
+									<th align="right" class="input-g">金</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td align="right">+1</td>
+									<td align="right">30</td>
+									<td align="right">15</td>
+									<td align="right">0</td>
+									<td align="right">0</td>
+								</tr>
+								<tr>
+									<td align="right">+2</td>
+									<td align="right">80</td>
+									<td align="right">30</td>
+									<td align="right">20</td>
+									<td align="right">2</td>
+								</tr>
+								<tr>
+									<td align="right">+3</td>
+									<td align="right">120</td>
+									<td align="right">50</td>
+									<td align="right">30</td>
+									<td align="right">3</td>
+								</tr>
+								<tr class="table-result">
+									<td align="right">計</td>
+									<td align="right">230</td>
+									<td align="right">95</td>
+									<td align="right">50</td>
+									<td align="right">5</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
 			</table>
-		</td>
-		<td class="none-right">
+			<div class="ref">
+				<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E7%B5%8C%E9%A8%93%E5%80%A4%E3%81%A8%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB">経験値テーブル</a>
+			</div>
 			<table border=1 style="border-collapse: collapse">
-			<thead>
-			<tr>
-			<th align="right">SR</th>
-			<th align="right" class="input-w">白</th>
-			<th align="right" class="input-b">青</th>
-			<th align="right" class="input-p">紫</th>
-			<th align="right" class="input-g">金</th>
-			</tr>
-			</thead>
-			<tbody>
-			<tr>
-			<td align="right">+1</td>
-			<td align="right">30</td>
-			<td align="right">15</td>
-			<td align="right">0</td>
-			<td align="right">0</td>
-			</tr>
-			<tr>
-			<td align="right">+2</td>
-			<td align="right">80</td>
-			<td align="right">30</td>
-			<td align="right">20</td>
-			<td align="right">2</td>
-			</tr>
-			<tr>
-			<td align="right">+3</td>
-			<td align="right">120</td>
-			<td align="right">50</td>
-			<td align="right">30</td>
-			<td align="right">3</td>
-			</tr>
-			<tr class="table-result">
-			<td align="right">計</td>
-			<td align="right">230</td>
-			<td align="right">95</td>
-			<td align="right">50</td>
-			<td align="right">5</td>
-			</tr>
-			</tbody>
+				<thead>
+					<tr>
+						<th align="right">Lv</th>
+						<th align="right">必要経験値</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="right">40</td>
+						<td align="right">158,033</td>
+					</tr>
+					<tr>
+						<td align="right">50</td>
+						<td align="right">329,704</td>
+					</tr>
+					<tr>
+						<td align="right">60</td>
+						<td align="right">601,454</td>
+					</tr>
+					<tr>
+						<td align="right">70</td>
+						<td align="right">1,000,000</td>
+					</tr>
+				</tbody>
 			</table>
-		</td>
-		</tr>
-		</table>
-		<div class="ref">
-			<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E3%83%AC%E3%83%99%E3%83%AB%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E7%B5%8C%E9%A8%93%E5%80%A4%E3%81%A8%E3%82%AF%E3%83%AA%E3%82%B9%E3%82%BF%E3%83%AB">経験値テーブル</a>
+			<div class="ref">
+				<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/Bounty%E3%81%AE%E5%A0%B1%E9%85%AC#%E3%82%AD%E3%83%A3%E3%83%A9%E5%BC%B7%E5%8C%96%E7%B4%A0%E6%9D%90">地獄1周で得られる経験値</a>は<br>
+				(クリア報酬*特許ボーナス+ランダム報酬)*同属性ボーナス<br>
+				=((青3紫1)*2+(青2))*1.5<br>
+				=((2500*3+10000*1)*2+(2500*2))*1.5<br>
+				=60000<br>
+				で計算<br>
+			</div>
+			<div class="ref">
+				<a href="https://github.com/gcgcal/gcgcal.github.io/wiki">ガルカフェメモ</a>
+			</div>
+			<div class="thanks">
+				<h2 class="thanks-title">Thanks.</h2>
+				<ul>
+					<li><a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570341406/449">【ガルカフェ】ガール・カフェ・ガン Part.42 >>449</a></li>
+					<li><a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570361440/413">【ガルカフェ】ガール・カフェ・ガン Part.43 >>413</a></li>
+				</ul>
+			</div>
+			<dl class="news">
+				<dt>2019-10-19</dt>
+				<dd>手持ちのDBでどこまで上がるか計算を追加した</dd>
+				<dt>2019-10-17</dt>
+				<dd>+数を入力できるようにした。Lv70までの周回数計算を追加した。</dd>
+				<dt>2019-10-09</dt>
+				<dd>限界突破対象の数を指定できるようにした。</dd>
+			</dl>
 		</div>
-		<table border=1 style="border-collapse: collapse">
-			<thead>
-		                <tr>
-		                <th align="right">Lv</th>
-		                <th align="right">必要経験値</th>
-		                </tr>
-		                </thead>
-			<tbody>
-		                <tr>
-		                <td align="right">40</td>
-		                <td align="right">158,033</td>
-			</tr>
-		                <tr>
-		                <td align="right">50</td>
-		                <td align="right">329,704</td>
-			</tr>
-		                <tr>
-		                <td align="right">60</td>
-		                <td align="right">601,454</td>
-			</tr>
-		                <tr>
-		                <td align="right">70</td>
-		                <td align="right">1,000,000</td>
-			</tr>
-			</tbody>
-		</table>
-		<div class="ref">
-			<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/Bounty%E3%81%AE%E5%A0%B1%E9%85%AC#%E3%82%AD%E3%83%A3%E3%83%A9%E5%BC%B7%E5%8C%96%E7%B4%A0%E6%9D%90">地獄1周で得られる経験値</a>は<br>
-			(クリア報酬*特許ボーナス+ランダム報酬)*同属性ボーナス<br>
-			=((青3紫1)*2+(青2))*1.5<br>
-			=((2500*3+10000*1)*2+(2500*2))*1.5<br>
-			=60000<br>
-			で計算<br>
-		</div>
-		<div class="ref">
-			<a href="https://github.com/gcgcal/gcgcal.github.io/wiki">ガルカフェメモ</a>
-		</div>
-
-		<div class="thanks">
-			<h2 class="thanks-title">Thanks.</h2>
-			<ul>
-				<li><a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570341406/449">【ガルカフェ】ガール・カフェ・ガン Part.42 >>449</a></li>
-				<li><a href="https://krsw.5ch.net/test/read.cgi/gamesm/1570361440/413">【ガルカフェ】ガール・カフェ・ガン Part.43 >>413</a></li>
-			</ul>
-		</div>
-
-		<dl class="news">
-			<dt>2019-10-19</dt>
-			<dd>手持ちのDBでどこまで上がるか計算を追加した</dd>
-
-			<dt>2019-10-17</dt>
-			<dd>+数を入力できるようにした。Lv70までの周回数計算を追加した。</dd>
-
-			<dt>2019-10-09</dt>
-			<dd>限界突破対象の数を指定できるようにした。</dd>
-		</dl>
-	</div>
-</body>
+	</body>
 </html>
