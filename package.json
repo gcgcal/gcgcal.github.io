@@ -1,0 +1,17 @@
+{
+  "name": "gcgcal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "browser-sync start --server --files \"*.html, *.css, *.js, *.svg\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gcgcal/gcgcal.github.io.git"
+  },
+  "homepage": "https://gcgcal.github.io",
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
