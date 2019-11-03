@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>ガルカフェ 計算機</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="mogi.js"></script>
+	</head>
+	<body>
+		<header class="header">
+			<div class="contents">
+				<h1 class="lv1">ガルカフェ 計算機</h1>
+			</div>
+		</header>
+		<div class="contents">
+			<h2>模擬演習 所要時間計算</h2>
+			<p>模擬演習のポイントから所要時間を逆算します。</p>
+			<form name="mogicalc" onSubmit="Calc();return false;">
+				<table>
+					<tr>
+						<th>難易度</th>
+						<th>ポイント</th>
+						<th>所要時間(秒)</th>
+					</tr>
+					<tr>
+						<td>簡単</td>
+						<td><input type="number" onfocus="this.select();" value="5000" max="5000"></td>
+						<td><input type="number" onfocus="this.select();" value="0" disabled="disabled"></td>
+					</tr>
+					<tr>
+						<td>普通</td>
+						<td><input type="number" onfocus="this.select();" value="6000" step="10" max="6000"></td>
+						<td><input type="number" onfocus="this.select();" value="0" disabled="disabled"></td>
+					</tr>
+					<tr>
+						<td>困難</td>
+						<td><input type="number" onfocus="this.select();" value="7500" max="7500"></td>
+						<td><input type="number" onfocus="this.select();" value="0" disabled="disabled"></td>
+					</tr>
+					<tr>
+						<td>悪夢</td>
+						<td><input type="number" onfocus="this.select();" value="10000" max="10000"></td>
+						<td><input type="number" onfocus="this.select();" value="0" disabled="disabled"></td>
+					</tr>
+					<tr>
+						<td>地獄</td>
+						<td><input type="number" onfocus="this.select();" value="15000" max="15000" step="25"></td>
+						<td><input type="number" onfocus="this.select();" d="hellt" value="0" disabled="disabled"></td>
+					</tr>
+				</table>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
