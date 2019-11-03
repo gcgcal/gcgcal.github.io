@@ -7,6 +7,9 @@ body {
 	font-size: 14px;
   line-height: 1.68;
 }
+a {
+	text-decoration: none;
+}
 button,
 input,
 optgroup,

@@ -11,47 +11,54 @@
 	<body>
 		<header class="header">
 			<div class="contents">
-				<h1 class="lv1">ガルカフェ 計算機</h1>
+				<a href="index.html"><h1 class="lv1">ガルカフェ 計算機</h1></a>
 			</div>
 		</header>
 		<div class="contents">
 			<h2>模擬演習 所要時間計算</h2>
 			<p>模擬演習のポイントから所要時間を逆算します。</p>
-			<form name="mogicalc" onSubmit="Calc();return false;">
-				<table>
-					<tr>
-						<th>難易度</th>
-						<th>ポイント</th>
-						<th>所要時間(秒)</th>
-					</tr>
-					<tr>
-						<td>簡単</td>
-						<td><input type="number" onfocus="this.select();" value="5000" max="5000"></td>
-						<td><input type="number" onfocus="this.select();" value="0" disabled="disabled"></td>
-					</tr>
-					<tr>
-						<td>普通</td>
-						<td><input type="number" onfocus="this.select();" value="6000" step="10" max="6000"></td>
-						<td><input type="number" onfocus="this.select();" value="0" disabled="disabled"></td>
-					</tr>
-					<tr>
-						<td>困難</td>
-						<td><input type="number" onfocus="this.select();" value="7500" max="7500"></td>
-						<td><input type="number" onfocus="this.select();" value="0" disabled="disabled"></td>
-					</tr>
-					<tr>
-						<td>悪夢</td>
-						<td><input type="number" onfocus="this.select();" value="10000" max="10000"></td>
-						<td><input type="number" onfocus="this.select();" value="0" disabled="disabled"></td>
-					</tr>
-					<tr>
-						<td>地獄</td>
-						<td><input type="number" onfocus="this.select();" value="15000" max="15000" step="25"></td>
-						<td><input type="number" onfocus="this.select();" d="hellt" value="0" disabled="disabled"></td>
-					</tr>
-				</table>
-				</div>
-			</form>
+			<table>
+				<tr>
+					<th>難易度</th>
+					<th>ポイント</th>
+					<th>所要時間(秒)</th>
+				</tr>
+				<tr>
+					<td>簡単</td>
+					<td><input type="number" onfocus="this.select();" value="5000" max="5000"></td>
+					<td><input type="tel" value="0" size="4" disabled="disabled"></td>
+				</tr>
+				<tr>
+					<td>普通</td>
+					<td><input type="number" onfocus="this.select();" value="6000" step="10" max="6000"></td>
+					<td><input type="tel" value="0" size="4" disabled="disabled"></td>
+				</tr>
+				<tr>
+					<td>困難</td>
+					<td><input type="number" onfocus="this.select();" value="7500" max="7500"></td>
+					<td><input type="tel" value="0" size="4" disabled="disabled"></td>
+				</tr>
+				<tr>
+					<td>悪夢</td>
+					<td><input type="number" onfocus="this.select();" value="10000" max="10000"></td>
+					<td><input type="tel" value="0" size="4" disabled="disabled"></td>
+				</tr>
+				<tr>
+					<td>地獄</td>
+					<td><input type="number" onfocus="this.select();" value="15000" max="15000" step="25"></td>
+					<td><input type="tel" value="0" size="4" disabled="disabled"></td>
+				</tr>
+			</table>
+			<br>
+			<p>
+			<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/sandbox#%E6%A8%A1%E6%93%AC%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88">模擬ptの計算</a><br>
+			（t=使った秒数）<br>
+			簡単：5000-25t/3<br>
+			普通：6000-10t<br>
+			困難：7500-12.5t<br>
+			悪夢：10000-50t/3<br>
+			地獄：15000-25t<br>
+			</p>
 		</div>
 	</body>
 </html>
