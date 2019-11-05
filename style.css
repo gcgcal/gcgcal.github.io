@@ -4,6 +4,7 @@ html {
 }
 body {
 	margin: 0;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
 	font-size: 14px;
   line-height: 1.68;
 }
@@ -171,5 +172,5 @@ table .none-right {
 }
 .news dd {
   margin-left: 7em;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.1em;
 }
