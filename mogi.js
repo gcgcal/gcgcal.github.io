@@ -1,23 +1,28 @@
 $(function($){
   $('input[type="number"]').on('keyup change',function(){
-    var easy = $('input:eq(0)').val();
-    easy = parseInt(easy);
-    $('input:eq(1)').val(((5000-easy)*3)/25);
+    var easy = $('input[id=easy]').val();
+    p = parseInt(easy);
+    t = (30000-(p*6))/50;
+    $('input:eq(1)').val(t);
 
-    var nomal = $('input:eq(2)').val();
-    nomalp = parseInt(nomal);
-    $('input:eq(3)').val((6000-nomal)/10);
+    var nomal = $('input[id=nomal]').val();
+    p = parseInt(nomal);
+    t = (30000-(p*5))/50;
+    $('input:eq(3)').val(t);
 
-    var hard = $('input:eq(4)').val();
-    hard = parseInt(hard);
-    $('input:eq(5)').val((7500-hard)/12.5);
+    var hard = $('input[id=hard]').val();
+    p = parseInt(hard);
+    t = (30000-(p*4))/50;
+    $('input:eq(5)').val(t);
 
-    var nm = $('input:eq(6)').val();
-    nm = parseInt(nm);
-    $('input:eq(7)').val(((10000-nm)*3)/50);
+    var nm = $('input[id=nm]').val();
+    p = parseInt(nm);
+    t = (30000-(p*3))/50;
+    $('input:eq(7)').val(t);
 
-    var hell = $('input:eq(8)').val();
-    hell = parseInt(hell);
-    $('input:eq(9)').val((15000-hell)/25);
+    var hell = $('input[id=hell]').val();
+    p = parseInt(hell);
+    t = (30000-(p*2))/50;
+    $('input:eq(9)').val(t);
   });
 });
