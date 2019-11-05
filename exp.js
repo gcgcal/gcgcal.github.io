@@ -33,7 +33,7 @@ $(function($){
 	var ga = $('input[id=ga]').val()
 
         getexp = 750*wb+3750*bb+15000*pb+75000*gb+500*wa+2500*ba+10000*pa+50000*ga;
-	reqcry = 500*(wb+wa)+2500*(bb+ba)+10000*(pb+pa)+50000*(gb+ga);
+	reqcry = 500*wb+2500*bb+10000*pb+50000*gb+500*wa+2500*ba+10000*pa+50000*ga;
         $('input[id=exp]').val(Math.ceil(getexp));
         $('input[id=cry]').val(Math.ceil(reqcry));
 
