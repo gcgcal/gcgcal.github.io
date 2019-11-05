@@ -15,22 +15,22 @@
 			</div>
 		</header>
 		<div class="contents">
-			<h2>限界突破素材計算</h2>
+			<h2>限界突破 素材計算</h2>
 			<p>+3まで限界突破するのに必要な素材の数と素材を集めるのに必要なBountyの周回数を計算します。</p>
-			<h3>限界突破対象</h3>
+			<h3>限界突破 対象</h3>
 			<label for="ssr0_num" class="label input-g">☆4</label>
-			+0:<input type="tel" onfocus="this.select();" id="ssr0_num" size="3" value="1">
-			+1:<input type="tel" onfocus="this.select();" id="ssr1_num" size="3" value="0">
-			+2:<input type="tel" onfocus="this.select();" id="ssr2_num" size="3" value="0"><br>
+			<label>+0:<input type="tel" onfocus="this.select();" id="ssr0_num" size="3" value="1"></label>
+			<label>+1:<input type="tel" onfocus="this.select();" id="ssr1_num" size="3" value="0"></label>
+			<label>+2:<input type="tel" onfocus="this.select();" id="ssr2_num" size="3" value="0"></label><br>
 			<label for="sr0_num" class="label input-p">☆3</label>
-			+0:<input type="tel" onfocus="this.select();" id="sr0_num" size="3" value="0">
-			+1:<input type="tel" onfocus="this.select();" id="sr1_num" size="3" value="0">
-			+2:<input type="tel" onfocus="this.select();" id="sr2_num" size="3" value="0"><br>
-			<label for="w" class="label">素材所持数</label>
-			白:<input type="tel" onfocus="this.select();" id="w" size="4" value="0">
-			青:<input type="tel" onfocus="this.select();" id="b" size="4" value="0">
-			紫:<input type="tel" onfocus="this.select();" id="p" size="4" value="0">
-			金:<input type="tel" onfocus="this.select();" id="g" size="4" value="0"><br>
+			<label>+0:<input type="tel" onfocus="this.select();" id="sr0_num" size="3" value="0"></label>
+			<label>+1:<input type="tel" onfocus="this.select();" id="sr1_num" size="3" value="0"></label>
+			<label>+2:<input type="tel" onfocus="this.select();" id="sr2_num" size="3" value="0"></label><br>
+			<label for="w" class="label">限界突破素材 所持数</label>
+			 <label class="input-w">白:<input type="tel" onfocus="this.select();" id="w" size="4" value="0"></label>
+			 <label class="input-b">青:<input type="tel" onfocus="this.select();" id="b" size="4" value="0"></label>
+			 <label class="input-p">紫:<input type="tel" onfocus="this.select();" id="p" size="4" value="0"></label>
+			 <label class="input-g">金:<input type="tel" onfocus="this.select();" id="g" size="4" value="0"></label><br>
 			<div class="check-wrap">
 				<label class="check"><input type="checkbox" id="dub" checked="checked">ドロップ2倍</label>
 			</div>
@@ -38,34 +38,34 @@
 				<legend>計算結果</legend>
 				<h3>素材</h3>
 				<label for="req_w">必要数:</label>
-				白:<input readonly type="tel" onfocus="this.select();" id="req_w" size="4" value="420" class="input-w" disabled="disabled">
-				青:<input readonly type="tel" onfocus="this.select();" id="req_b" size="4" value="160" class="input-b" disabled="disabled">
-				紫:<input readonly type="tel" onfocus="this.select();" id="req_p" size="4" value="85" class="input-p" disabled="disabled">
-				金:<input readonly type="tel" onfocus="this.select();" id="req_g" size="4" value="10" class="input-g" disabled="disabled"><br>
+				 <label class="input-w">白:<input readonly type="tel" onfocus="this.select();" id="req_w" size="4" value="420" class="input-w" disabled="disabled"></label>
+				 <label class="input-b">青:<input readonly type="tel" onfocus="this.select();" id="req_b" size="4" value="160" class="input-b" disabled="disabled"></label>
+				 <label class="input-p">紫:<input readonly type="tel" onfocus="this.select();" id="req_p" size="4" value="85" class="input-p" disabled="disabled"></label>
+				 <label class="input-g">金:<input readonly type="tel" onfocus="this.select();" id="req_g" size="4" value="10" class="input-g" disabled="disabled"></label><br>
 				<label for="beh_w">不足数:</label>
-				白:<input readonly type="tel" onfocus="this.select();" id="beh_w" size="4" value="420" class="input-w" disabled="disabled">
-				青:<input readonly type="tel" onfocus="this.select();" id="beh_b" size="4" value="160" class="input-b" disabled="disabled">
-				紫:<input readonly type="tel" onfocus="this.select();" id="beh_p" size="4" value="85" class="input-p" disabled="disabled">
-				金:<input readonly type="tel" onfocus="this.select();" id="beh_g" size="4" value="10" class="input-g" disabled="disabled"><br>
+				 <label class="input-w">白:<input readonly type="tel" onfocus="this.select();" id="beh_w" size="4" value="420" class="input-w" disabled="disabled"></label>
+				 <label class="input-b">青:<input readonly type="tel" onfocus="this.select();" id="beh_b" size="4" value="160" class="input-b" disabled="disabled"></label>
+				 <label class="input-p">紫:<input readonly type="tel" onfocus="this.select();" id="beh_p" size="4" value="85" class="input-p" disabled="disabled"></label>
+				 <label class="input-g">金:<input readonly type="tel" onfocus="this.select();" id="beh_g" size="4" value="10" class="input-g" disabled="disabled"></label><br>
 				<h3>周回数（デイリー・ランダム分含めず）</h3>
 				<label for="round_iw">地獄　:</label>
-				白:<input readonly type="tel" onfocus="this.select();" id="round_iw" size="3" value="12" class="input-w" disabled="disabled">
-				青:<input readonly type="tel" onfocus="this.select();" id="round_ib" size="3" value="14" class="input-b" disabled="disabled">
-				紫:<input readonly type="tel" onfocus="this.select();" id="round_ip" size="3" value="15" class="input-p" disabled="disabled"><br>
+				 <label class="input-w">白:<input readonly type="tel" onfocus="this.select();" id="round_iw" size="3" value="12" class="input-w" disabled="disabled"></label>
+				 <label class="input-b">青:<input readonly type="tel" onfocus="this.select();" id="round_ib" size="3" value="14" class="input-b" disabled="disabled"></label>
+				 <label class="input-p">紫:<input readonly type="tel" onfocus="this.select();" id="round_ip" size="3" value="15" class="input-p" disabled="disabled"></label><br>
 				<label for="round_nw">悪夢　:</label>
-				白:<input type="tel" onfocus="this.select();" id="round_nw" size="3" value="15" class="input-w" disabled="disabled">
-				青:<input type="tel" onfocus="this.select();" id="round_nb" size="3" value="16" class="input-b" disabled="disabled">
-				紫:<input type="tel" onfocus="this.select();" id="round_np" size="3" value="22" class="input-p" disabled="disabled"><br>
+				 <label class="input-w">白:<input type="tel" onfocus="this.select();" id="round_nw" size="3" value="15" class="input-w" disabled="disabled"></label>
+				 <label class="input-b">青:<input type="tel" onfocus="this.select();" id="round_nb" size="3" value="16" class="input-b" disabled="disabled"></label>
+				 <label class="input-p">紫:<input type="tel" onfocus="this.select();" id="round_np" size="3" value="22" class="input-p" disabled="disabled"></label><br>
 				<label for="round_hw">困難　:</label>
-				白:<input type="tel" onfocus="this.select();" id="round_hw" size="3" value="21" class="input-w" disabled="disabled">
-				青:<input type="tel" onfocus="this.select();" id="round_hb" size="3" value="27" class="input-b" disabled="disabled">
-				紫:<input type="tel" onfocus="this.select();" id="round_hp" size="3" value="43" class="input-p" disabled="disabled">
+				 <label class="input-w">白:<input type="tel" onfocus="this.select();" id="round_hw" size="3" value="21" class="input-w" disabled="disabled"></label>
+				 <label class="input-b">青:<input type="tel" onfocus="this.select();" id="round_hb" size="3" value="27" class="input-b" disabled="disabled"></label>
+				 <label class="input-p">紫:<input type="tel" onfocus="this.select();" id="round_hp" size="3" value="43" class="input-p" disabled="disabled"></label>
 			</fieldset>
 			<br>
 			<br>
 			<br>
 			<div class="ref">
-				<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E9%99%90%E7%95%8C%E7%AA%81%E7%A0%B4">限界突破必要数</a>
+				<a href="https://github.com/gcgcal/gcgcal.github.io/wiki/%E8%82%B2%E6%88%90%E8%B2%BB%E7%94%A8#%E9%99%90%E7%95%8C%E7%AA%81%E7%A0%B4">限界突破素材 必要数</a>
 			</div>
 			<table cellpadding=10>
 				<tr>
@@ -73,7 +73,7 @@
 						<table border=1 style="border-collapse: collapse">
 							<thead>
 								<tr>
-									<th align="right">☆4</th>
+									<th align="right" class="input-g">☆4</th>
 									<th align="right" class="input-w">白</th>
 									<th align="right" class="input-b">青</th>
 									<th align="right" class="input-p">紫</th>
@@ -116,7 +116,7 @@
 						<table border=1 style="border-collapse: collapse">
 							<thead>
 								<tr>
-									<th align="right">☆3</th>
+									<th align="right" class="imput-p">☆3</th>
 									<th align="right" class="input-w">白</th>
 									<th align="right" class="input-b">青</th>
 									<th align="right" class="input-p">紫</th>
